@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #0f1020;
+  color: #f7f3ff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.header {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(15, 16, 32, 0.7);
+  backdrop-filter: blur(18px);
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(201, 182, 255, 0.16);
+  color: #f7f3ff;
+  font-weight: 800;
+}
+
+.navLinks {
+  display: flex;
+  gap: 18px;
+  color: #d8d2e8;
+  font-size: 0.95rem;
+}
+
+.navLinks a {
+  transition: color 0.2s ease;
+}
+
+.navLinks a:hover {
+  color: #ffffff;
+}
+
+.site {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 10vw 72px;
+  background:
+    radial-gradient(circle at top right, rgba(146, 95, 226, 0.45), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(70, 130, 180, 0.35), transparent 35%),
+    #0f1020;
+}
+
+.eyebrow,
+.sectionLabel {
+  color: #c9b6ff;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+h1 {
+  max-width: 1000px;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  line-height: 0.92;
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  margin: 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.heroText {
+  max-width: 760px;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.5;
+  color: #ddd6f3;
+  margin: 28px 0;
+}
+
+.heroButtons,
+.contactLinks {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.heroButtons a,
+.contactLinks a {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.heroButtons a:hover,
+.contactLinks a:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.section {
+  padding: 104px 10vw;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.sectionIntro {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.sectionBody p,
+.sectionIntro p,
+.projectCard p,
+.courseCard p,
+.contactSection p {
+  color: #d8d2e8;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.projectCard,
+.courseCard {
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  transition: transform 0.2s ease, background 0.2s ease, border 0.2s ease;
+}
+
+.projectCard {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectCard:hover,
+.courseCard:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(201, 182, 255, 0.5);
+}
+
+.cardTop {
+  margin-bottom: 22px;
+}
+
+.status {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(201, 182, 255, 0.14);
+  color: #d9ccff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.toolList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.toolList span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #c9b6ff;
+  font-size: 0.85rem;
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contactSection {
+  min-height: 60vh;
+}
+
+.contactSection p {
+  max-width: 720px;
+}
+
+@media (max-width: 850px) {
+  .header {
+    align-items: flex-start;
+    border-radius: 28px;
+  }
+
+  .navLinks {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    font-size: 0.85rem;
+  }
+
+  .hero,
+  .section {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .twoColumn,
+  .projectGrid,
+  .courseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .projectCard {
+    min-height: auto;
+  }
+}
