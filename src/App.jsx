@@ -1,24 +1,25 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Coursework from "./components/Coursework";
-import Contact from "./components/Contact";
+import HomeDashboard from "./components/HomeDashboard";
+import CustomCursor from "./components/CustomCursor";
+import ProjectPage from "./pages/ProjectPage";
+import CourseworkPage from "./pages/CourseworkPage";
+import AboutPage from "./pages/AboutPage";
 import "./App.css";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
+      <CustomCursor />
       <Header />
 
-      <main className="site">
-        <Hero />
-        <About />
-        <Projects />
-        <Coursework />
-        <Contact />
-      </main>
-    </>
+      <Routes>
+        <Route path="/" element={<HomeDashboard />} />
+        <Route path="/projects/:projectSlug" element={<ProjectPage />} />
+        <Route path="/coursework" element={<CourseworkPage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

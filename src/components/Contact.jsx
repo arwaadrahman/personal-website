@@ -11,11 +11,11 @@ function Contact() {
             </p>
 
             <div className="contactLinks">
-                <a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank">
+                <a href="https://github.com/arwaadrahman" target="_blank">
                     GitHub
                 </a>
 
-                <a href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank">
+                <a href="https://www.linkedin.com/in/arwaad/" target="_blank">
                     LinkedIn
                 </a>
 
