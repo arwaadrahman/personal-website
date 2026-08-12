@@ -37,7 +37,7 @@ function HomeDashboard() {
                         </div>
                     </Link>
 
-                    <div className="aboutMiniLabel">Currently into</div>
+                    <div className="aboutMiniLabel">Now playing</div>
 
                     <div className="rotationPanel">
                         <p className="tileKicker">Current Rotation</p>
