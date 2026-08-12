@@ -1,14 +1,14 @@
 export const projects = [
     {
-        slug: "policy-ml",
-        title: "Policy/Data Visualization with ML",
-        shortTitle: "Policy + ML",
+        slug: "policy-analysis",
+        title: "Policy Analysis",
+        shortTitle: "Policy Analysis",
         status: "Featured",
         description:
-            "A data project exploring a public policy question through cleaning, visualization, and a simple machine learning model.",
+            "A public policy analysis project using data, visualization, and eventually machine learning to explore real-world civic questions.",
         details:
-            "This project will combine public datasets, exploratory analysis, visual storytelling, and basic predictive modeling. The goal is to practice Python, data analysis, machine learning, and communication around a real-world policy issue.",
-        tools: ["Python", "Pandas", "ML", "Visualization", "Policy"],
+            "This project will focus on using public datasets to investigate a policy question, communicate insights clearly, and eventually incorporate a simple predictive model. It is meant to connect data analysis, public policy, visualization, and technical storytelling.",
+        tools: ["Python", "Pandas", "Visualization", "Policy", "Machine Learning"],
     },
     {
         slug: "sports-analytics",

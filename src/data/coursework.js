@@ -11,14 +11,14 @@ export const coursework = [
         area: "Mathematics",
         details:
             "Calculus, linear algebra, and quantitative reasoning for future work in data science and machine learning.",
-        relatedProjects: ["Policy/Data Visualization with ML", "Sports Analytics"],
+        relatedProjects: ["Policy Analysis", "Sports Analytics"],
     },
     {
         slug: "public-policy",
         area: "Public Policy",
         details:
             "Policy analysis, social systems, and the connection between technology and public impact.",
-        relatedProjects: ["Policy/Data Visualization with ML"],
+        relatedProjects: ["Policy Analysis"],
     },
     {
         slug: "project-based-learning",

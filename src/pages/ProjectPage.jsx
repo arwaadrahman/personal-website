@@ -3,17 +3,16 @@ import { projects } from "../data/projects";
 
 function ProjectPage() {
     const { projectSlug } = useParams();
-
     const project = projects.find((item) => item.slug === projectSlug);
 
     if (!project) {
         return (
             <main className="contentPage">
-                <section className="pageHeader glassPanel">
-                    <p className="sectionLabel">Project not found</p>
+                <section className="pagePanel">
+                    <p className="eyebrow">Project not found</p>
                     <h1>That project does not exist yet.</h1>
 
-                    <Link className="learnMore" to="/">
+                    <Link className="pageButton" to="/">
                         Back home
                     </Link>
                 </section>
@@ -23,20 +22,20 @@ function ProjectPage() {
 
     return (
         <main className="contentPage">
-            <section className="pageHeader glassPanel">
-                <p className="sectionLabel">{project.status}</p>
+            <section className="pagePanel">
+                <p className="eyebrow">{project.status}</p>
 
                 <h1>{project.title}</h1>
 
-                <p>{project.details}</p>
+                <p className="pageLead">{project.details}</p>
 
-                <div className="tileTools pageTools">
+                <div className="tagRow pageTags">
                     {project.tools.map((tool) => (
                         <span key={tool}>{tool}</span>
                     ))}
                 </div>
 
-                <div className="projectNotes">
+                <div className="pageSection">
                     <h2>Planned direction</h2>
 
                     <p>
@@ -45,8 +44,8 @@ function ProjectPage() {
                     </p>
                 </div>
 
-                <Link className="learnMore" to="/">
-                    Back to dashboard
+                <Link className="pageButton" to="/">
+                    Back to homepage
                 </Link>
             </section>
         </main>

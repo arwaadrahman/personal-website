@@ -3,21 +3,21 @@ import { coursework } from "../data/coursework";
 function CourseworkPage() {
     return (
         <main className="contentPage">
-            <section className="pageHeader glassPanel">
-                <p className="sectionLabel">Coursework</p>
+            <section className="pagePanel">
+                <p className="eyebrow">Coursework</p>
 
                 <h1>Coursework and technical growth</h1>
 
-                <p>
+                <p className="pageLead">
                     This section will connect coursework to projects, skills, and evidence
                     of learning as I continue building the portfolio.
                 </p>
             </section>
 
-            <section className="pageGrid">
+            <section className="courseworkGrid">
                 {coursework.map((item) => (
-                    <article className="detailCard glassPanel" id={item.slug} key={item.slug}>
-                        <p className="sectionLabel">{item.area}</p>
+                    <article className="courseworkCard" id={item.slug} key={item.slug}>
+                        <p className="eyebrow">{item.area}</p>
 
                         <h2>{item.area}</h2>
 

@@ -1,64 +1,69 @@
-import { useState } from "react";
-import { projects } from "../data/projects";
-import DashboardCard from "./DashboardCard";
-import Currently from "./Currently";
+import { Link } from "react-router-dom";
+import { currentRotation } from "../data/currentRotation";
 
 function HomeDashboard() {
-    const [hoveredProject, setHoveredProject] = useState(null);
-
     return (
         <main className="homePage">
-            <section className="homeIntro glassPanel">
-                <p className="sectionLabel">UW Student Portfolio</p>
-
+            <section className="heroStrip">
+                <p className="eyebrow">UW Student Portfolio</p>
                 <h1>Arwaad Rahman</h1>
-
-                <p className="introText">
-                    Building projects across technology, policy, data, and interactive
-                    systems.
+                <p>
+                    Building projects across technology, public policy, data, and
+                    interactive systems.
                 </p>
-
-                <div className="quickLinks">
-                    <a
-                        href="https://github.com/arwaadrahman"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        GitHub
-                    </a>
-
-                    <a
-                        href="https://www.linkedin.com/in/arwaad/"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        LinkedIn
-                    </a>
-
-                    <a
-                        href="/Arwaad_Rahman_Resume.pdf"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        Resume
-                    </a>
-                </div>
             </section>
 
-            <section className="menuBoard" aria-label="Featured project menu">
-                {projects.map((project) => (
-                    <DashboardCard
-                        key={project.slug}
-                        project={project}
-                        isHovered={hoveredProject === project.slug}
-                        isDimmed={hoveredProject !== null && hoveredProject !== project.slug}
-                        onMouseEnter={() => setHoveredProject(project.slug)}
-                        onMouseLeave={() => setHoveredProject(null)}
-                    />
-                ))}
-            </section>
+            <section className="homeTiles" aria-label="Homepage dashboard">
+                <Link className="homeTile aboutTile" to="/about">
+                    <div className="tileAccent cyanAccent" />
 
-            <Currently />
+                    <div className="tileBaseContent">
+                        <p className="tileKicker">About</p>
+                        <h2>Student portfolio</h2>
+                        <p>
+                            A growing technical portfolio shaped by coursework, project-based
+                            learning, and curiosity across software, policy, and data.
+                        </p>
+                    </div>
+
+                    <div className="rotationPanel">
+                        <p className="tileKicker">Current Rotation</p>
+
+                        <div className="rotationGrid">
+                            {currentRotation.map((item) => (
+                                <div className="rotationItem" key={item.label}>
+                                    <span>{item.label}</span>
+                                    <strong>{item.value}</strong>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </Link>
+
+                <Link className="homeTile highlightTile" to="/projects/policy-analysis">
+                    <div className="tileAccent magentaAccent" />
+
+                    <div className="highlightLabel">Featured Highlight</div>
+
+                    <div className="tileBaseContent">
+                        <p className="tileKicker">Project</p>
+                        <h2>Policy Analysis</h2>
+                        <p>
+                            A public policy analysis project using data, visualization, and
+                            eventually machine learning to explore civic questions.
+                        </p>
+
+                        <div className="tagRow">
+                            <span>Python</span>
+                            <span>Data</span>
+                            <span>Policy</span>
+                            <span>Visualization</span>
+                        </div>
+                    </div>
+
+                    <div className="tileCTA">Open project</div>
+                </Link>
+            </section>
         </main>
     );
 }

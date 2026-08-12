@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
-import { coursework } from "../data/coursework";
 
 function Header() {
     return (
@@ -9,7 +8,7 @@ function Header() {
                 AR
             </Link>
 
-            <nav className="navLinks" aria-label="Main navigation">
+            <nav className="mainNav" aria-label="Main navigation">
                 <Link to="/">Home</Link>
 
                 <div className="navDropdown">
@@ -24,29 +23,38 @@ function Header() {
                     </div>
                 </div>
 
-                <div className="navDropdown">
-                    <button type="button">Coursework ▾</button>
-
-                    <div className="dropdownMenu">
-                        {coursework.map((item) => (
-                            <Link key={item.slug} to={`/coursework#${item.slug}`}>
-                                {item.area}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-
+                <Link to="/coursework">Coursework</Link>
                 <Link to="/about">About</Link>
+            </nav>
+
+            <div className="navActions">
+                <a
+                    className="actionButton githubButton"
+                    href="https://github.com/arwaadrahman"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    GitHub
+                </a>
 
                 <a
-                    className="resumeNav"
+                    className="actionButton linkedinButton"
+                    href="https://www.linkedin.com/in/arwaad/"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    className="actionButton resumeButton"
                     href="/Arwaad_Rahman_Resume.pdf"
                     target="_blank"
                     rel="noreferrer"
                 >
                     Resume
                 </a>
-            </nav>
+            </div>
         </header>
     );
 }

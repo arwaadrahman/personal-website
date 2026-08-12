@@ -9,9 +9,7 @@ function CustomCursor() {
             setPosition({ x: event.clientX, y: event.clientY });
 
             const target = event.target;
-            const isInteractive = target.closest(
-                "a, button, .dashboardCard, .navDropdown"
-            );
+            const isInteractive = target.closest("a, button, .homeTile, .navDropdown");
 
             setIsHovering(Boolean(isInteractive));
         }
