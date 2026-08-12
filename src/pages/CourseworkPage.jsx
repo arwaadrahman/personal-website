@@ -17,8 +17,6 @@ function CourseworkPage() {
             <section className="courseworkGrid">
                 {coursework.map((item) => (
                     <article className="courseworkCard" id={item.slug} key={item.slug}>
-                        <p className="eyebrow">{item.area}</p>
-
                         <h2>{item.area}</h2>
 
                         <p>{item.details}</p>

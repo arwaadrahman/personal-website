@@ -60,7 +60,7 @@ export const coursework = [
         relatedProjects: ["Policy Analysis", "Sports Analytics Project"],
     },
     {
-        slug: "informatics",
+        slug: "Informatics",
         area: "Informatics",
         details:
             "Human-centered technology, information systems, data, and product thinking.",

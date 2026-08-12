@@ -547,12 +547,6 @@ a {
   box-shadow: none;
 }
 
-.tileOverlayLink {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
 .aboutTile:hover {
   background: var(--cyan);
   color: var(--cream-light);
@@ -607,16 +601,13 @@ a {
     radial-gradient(circle at 72% 68%, rgba(242, 234, 220, 0.2), transparent 24%);
 }
 
-.tileBaseContent {
-  position: relative;
+.aboutMainLink {
+  position: absolute;
+  inset: 0;
   z-index: 2;
-  height: 100%;
   padding: 34px;
   display: flex;
   flex-direction: column;
-}
-
-.aboutBase {
   justify-content: flex-end;
 }
 
@@ -626,7 +617,37 @@ a {
 }
 
 .aboutTile:hover .aboutIdentity {
-  transform: translateY(-28px);
+  transform: translateY(-178px);
+}
+
+.aboutMiniLabel {
+  position: absolute;
+  top: 34px;
+  right: 34px;
+  z-index: 4;
+  padding: 10px 14px;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  background: var(--cyan);
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.aboutTile:hover .aboutMiniLabel {
+  background: var(--cream-light);
+  color: #151722;
+}
+
+.tileBaseContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
 }
 
 .highlightContent {
@@ -651,7 +672,7 @@ a {
   color: var(--cream-light);
 }
 
-.aboutBase h1 {
+.aboutMainLink h1 {
   margin: 14px 0 10px;
   font-size: clamp(4.1rem, 7.3vw, 7.5rem);
   line-height: 0.84;
@@ -666,7 +687,8 @@ a {
   letter-spacing: -0.085em;
 }
 
-.tileBaseContent p {
+.tileBaseContent p,
+.aboutMainLink p {
   margin: 0;
   max-width: 540px;
   color: var(--muted);
@@ -674,7 +696,8 @@ a {
   line-height: 1.55;
 }
 
-.homeTile:hover .tileBaseContent p {
+.homeTile:hover .tileBaseContent p,
+.aboutTile:hover .aboutMainLink p {
   color: var(--cream-light);
 }
 
@@ -685,23 +708,23 @@ a {
 }
 
 .rotationPanel {
-  position: relative;
-  z-index: 3;
-  margin-top: 12px;
+  position: absolute;
+  left: 34px;
+  right: 34px;
+  bottom: 34px;
+  z-index: 5;
   opacity: 0;
-  max-height: 0;
-  overflow: hidden;
   transform: translateY(18px);
+  pointer-events: none;
   transition:
     opacity 0.28s ease,
-    max-height 0.34s ease,
     transform 0.28s ease;
 }
 
 .aboutTile:hover .rotationPanel {
   opacity: 1;
-  max-height: 300px;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .rotationPanel .tileKicker {
@@ -724,7 +747,6 @@ a {
   background: var(--cream-light);
   color: var(--pink);
   box-shadow: 5px 5px 0 rgba(159, 40, 88, 0.22);
-  pointer-events: auto;
   transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
@@ -750,7 +772,7 @@ a {
 
 .rotationButton strong {
   display: block;
-  color: var(--ink);
+  color: #151722;
   font-size: 0.93rem;
   line-height: 1.22;
 }
@@ -773,14 +795,14 @@ a {
   letter-spacing: 0.12em;
 }
 
-.highlightLabel {
+.projectMiniStatus {
   top: 34px;
   left: 34px;
 }
 
-.projectMiniStatus {
+.highlightLabel {
   top: 34px;
-  left: 242px;
+  right: 34px;
 }
 
 .weeklyHighlightLabel {
@@ -790,10 +812,10 @@ a {
 
 .statusInProgressLabel {
   background:
-    linear-gradient(rgba(21, 23, 34, 0.12), rgba(21, 23, 34, 0.12)),
+    linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
     repeating-linear-gradient(135deg,
-      #ffd451 0 14px,
-      #151722 14px 24px);
+      #ffd451 0 18px,
+      #151722 18px 27px);
   color: #fffdf2;
   text-shadow:
     -1px -1px 0 #151722,
@@ -883,32 +905,6 @@ a {
   background: transparent;
   color: #ffffff;
   border-color: #ffffff;
-}
-
-.tileStripe {
-  position: absolute;
-  top: 28px;
-  right: 28px;
-  z-index: 3;
-  width: 118px;
-  height: 16px;
-  border: 2px solid currentColor;
-}
-
-.aboutStripe {
-  background: var(--cyan);
-}
-
-.aboutTile:hover .aboutStripe {
-  background: var(--pink);
-}
-
-.highlightStripe {
-  background: var(--pink);
-}
-
-.highlightTile:hover .highlightStripe {
-  background: var(--cyan);
 }
 
 /* Contact modal */
@@ -1084,8 +1080,8 @@ a {
 .projectInProgress {
   background:
     repeating-linear-gradient(135deg,
-      #ffd451 0 16px,
-      #151722 16px 28px);
+      #ffd451 0 18px,
+      #151722 18px 27px);
 }
 
 .projectPlanned {
@@ -1208,19 +1204,20 @@ a {
 
 .course-in-progress {
   background:
-    linear-gradient(rgba(21, 23, 34, 0.06), rgba(21, 23, 34, 0.06)),
+    linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
     repeating-linear-gradient(135deg,
-      #ffd451 0 12px,
-      #151722 12px 20px);
-  color: #fff8e8;
+      #ffd451 0 18px,
+      #151722 18px 27px);
+  color: #ffffff;
 }
 
 .course-planned {
   background:
-    linear-gradient(90deg, rgba(38, 168, 156, 0.26) 1px, transparent 1px),
-    linear-gradient(rgba(38, 168, 156, 0.26) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 168, 156, 0.35) 1px, transparent 1px),
+    linear-gradient(rgba(38, 168, 156, 0.35) 1px, transparent 1px),
     #dbeeff;
   background-size: 12px 12px;
+  color: #151722;
 }
 
 .themeDark .course-completed {
@@ -1231,19 +1228,20 @@ a {
 
 .themeDark .course-in-progress {
   background:
-    linear-gradient(rgba(21, 23, 34, 0.1), rgba(21, 23, 34, 0.1)),
+    linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
     repeating-linear-gradient(135deg,
-      #ffd451 0 12px,
-      #151722 12px 20px);
+      #ffd451 0 18px,
+      #151722 18px 27px);
   color: #ffffff;
 }
 
 .themeDark .course-planned {
   background:
-    linear-gradient(90deg, rgba(38, 168, 156, 0.38) 1px, transparent 1px),
-    linear-gradient(rgba(38, 168, 156, 0.38) 1px, transparent 1px),
-    #0b0e17;
-  color: var(--ink);
+    linear-gradient(90deg, rgba(38, 168, 156, 0.35) 1px, transparent 1px),
+    linear-gradient(rgba(38, 168, 156, 0.35) 1px, transparent 1px),
+    #dbeeff;
+  background-size: 12px 12px;
+  color: #151722;
 }
 
 .coursePill strong {
@@ -1254,7 +1252,7 @@ a {
 .course-in-progress strong,
 .course-in-progress span,
 .course-in-progress em {
-  color: #fff8e8;
+  color: #ffffff;
   text-shadow:
     -1px -1px 0 #151722,
     1px -1px 0 #151722,
@@ -1357,10 +1355,24 @@ a {
     grid-template-columns: 1fr;
   }
 
+  .aboutMainLink {
+    position: relative;
+    min-height: 290px;
+  }
+
+  .aboutTile:hover .aboutIdentity {
+    transform: translateY(0);
+  }
+
   .rotationPanel {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    margin: 0 34px 34px;
     opacity: 1;
-    max-height: none;
     transform: none;
+    pointer-events: auto;
   }
 
   .homeTile {
@@ -1370,6 +1382,12 @@ a {
   .projectMiniStatus {
     top: 86px;
     left: 34px;
+  }
+
+  .highlightLabel {
+    top: 34px;
+    left: 34px;
+    right: auto;
   }
 }
 
@@ -1413,7 +1431,7 @@ a {
     padding: 24px;
   }
 
-  .aboutBase h1,
+  .aboutMainLink h1,
   .tileBaseContent h2,
   .pagePanel h1,
   .projectPageInner h1 {

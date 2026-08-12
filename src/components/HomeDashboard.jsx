@@ -25,41 +25,45 @@ function HomeDashboard() {
 
             <section className="homeTiles" aria-label="Homepage dashboard">
                 <article className="homeTile aboutTile">
-                    <Link className="tileOverlayLink" to="/about" aria-label="About Arwaad Rahman" />
-
-                    <div className="tileBaseContent aboutBase">
+                    <Link
+                        className="aboutMainLink"
+                        to="/about"
+                        aria-label="About Arwaad Rahman"
+                    >
                         <div className="aboutIdentity">
                             <p className="tileKicker">About</p>
                             <h1>Arwaad Rahman</h1>
                             <p className="tileFooterText">More about me</p>
                         </div>
+                    </Link>
 
-                        <div className="rotationPanel">
-                            <p className="tileKicker">Current Rotation</p>
+                    <div className="aboutMiniLabel">Currently into</div>
 
-                            <div className="rotationGrid">
-                                {currentRotation.map((item) => (
-                                    <a
-                                        className="rotationButton"
-                                        key={item.label}
-                                        href={item.href}
-                                        target={item.href.startsWith("http") ? "_blank" : undefined}
-                                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                                    >
-                                        <span>{item.label}</span>
-                                        <strong>{item.value}</strong>
-                                    </a>
-                                ))}
-                            </div>
+                    <div className="rotationPanel">
+                        <p className="tileKicker">Current Rotation</p>
+
+                        <div className="rotationGrid">
+                            {currentRotation.map((item) => (
+                                <a
+                                    className="rotationButton"
+                                    key={item.label}
+                                    href={item.href}
+                                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                                >
+                                    <span>{item.label}</span>
+                                    <strong>{item.value}</strong>
+                                </a>
+                            ))}
                         </div>
                     </div>
-
-                    <div className="tileStripe aboutStripe" />
                 </article>
 
                 <Link className="homeTile highlightTile" to="/projects/policy-analysis">
-                    <div className="highlightLabel weeklyHighlightLabel">Highlight of the week</div>
                     <div className="projectMiniStatus statusInProgressLabel">In progress</div>
+                    <div className="highlightLabel weeklyHighlightLabel">
+                        Highlight of the week
+                    </div>
 
                     <div className="tileBaseContent highlightContent">
                         <p className="tileKicker">Project</p>
@@ -80,7 +84,6 @@ function HomeDashboard() {
                     </div>
 
                     <div className="tileCTA">See more</div>
-                    <div className="tileStripe highlightStripe" />
                 </Link>
             </section>
         </main>
