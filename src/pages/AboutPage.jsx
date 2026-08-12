@@ -17,9 +17,7 @@ function AboutPage() {
                     React, CSS, GitHub workflows, design systems, and deployment.
                 </p>
 
-                <p>
-                    Based in Seattle, WA.
-                </p>
+                <p>Based in Seattle, WA.</p>
             </section>
         </main>
     );

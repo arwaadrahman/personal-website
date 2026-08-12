@@ -25,14 +25,14 @@ function ContactModal({ isOpen, onClose }) {
                     data, and interactive systems. The best way to reach me is by email.
                 </p>
 
-                <a className="emailBlock" href="arwaadar@gmail.com">
-                    arwaadar@gmail.com
+                <a className="emailBlock" href="mailto:your-email@example.com">
+                    your-email@example.com
                 </a>
 
                 <div className="modalLinks">
                     <a
                         className="modalButton githubModal"
-                        href="https://github.com/arwaadrahman"
+                        href="https://github.com/YOUR-GITHUB-USERNAME"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -41,7 +41,7 @@ function ContactModal({ isOpen, onClose }) {
 
                     <a
                         className="modalButton linkedinModal"
-                        href="https://www.linkedin.com/in/arwaad/"
+                        href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME/"
                         target="_blank"
                         rel="noreferrer"
                     >

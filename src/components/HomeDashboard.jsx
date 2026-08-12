@@ -10,10 +10,15 @@ function HomeDashboard() {
                 <span className="gradientBubble bubbleThree" />
                 <span className="gradientBubble bubbleFour" />
                 <span className="gradientBubble bubbleFive" />
+
                 <span className="shootingStreak streakOne" />
                 <span className="shootingStreak streakTwo" />
                 <span className="shootingStreak streakThree" />
                 <span className="shootingStreak streakFour" />
+                <span className="shootingStreak streakFive" />
+                <span className="shootingStreak streakSix" />
+                <span className="shootingStreak streakSeven" />
+
                 <span className="softRibbon ribbonOne" />
                 <span className="softRibbon ribbonTwo" />
             </div>
@@ -53,7 +58,7 @@ function HomeDashboard() {
                 </article>
 
                 <Link className="homeTile highlightTile" to="/projects/policy-analysis">
-                    <div className="highlightLabel statusInProgress">In progress</div>
+                    <div className="highlightLabel statusInProgressLabel">In progress</div>
 
                     <div className="tileBaseContent highlightContent">
                         <p className="tileKicker">Project</p>
