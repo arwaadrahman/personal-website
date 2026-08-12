@@ -20,10 +20,17 @@ function ProjectPage() {
         );
     }
 
+    const statusClass =
+        project.statusType === "in-progress" ? "statusInProgress" : "statusPlanned";
+
     return (
         <main className="contentPage">
-            <section className="pagePanel">
-                <p className="eyebrow">{project.status}</p>
+            <section className={`pagePanel projectPagePanel ${statusClass}`}>
+                <div className="projectStatusBanner">
+                    <span>{project.status}</span>
+                </div>
+
+                <p className="eyebrow">Project</p>
 
                 <h1>{project.title}</h1>
 

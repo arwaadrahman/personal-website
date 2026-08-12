@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  color: #1d1f2a;
+  color: #151722;
   overflow-x: hidden;
 }
 
@@ -26,23 +26,45 @@ a {
 }
 
 .appShell {
+  --cream: #e8dfcf;
+  --cream-light: #f2eadc;
+  --ink: #151722;
+  --muted: #323746;
+  --cyan: #26a89c;
+  --cyan-dark: #1b766e;
+  --pink: #9f2858;
+  --pink-dark: #7d2045;
+  --purple: #5943b8;
+  --shadow: rgba(21, 23, 34, 0.22);
+
   position: relative;
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 10% 12%, rgba(98, 226, 241, 0.18), transparent 28%),
-    radial-gradient(circle at 90% 18%, rgba(255, 79, 123, 0.14), transparent 26%),
-    radial-gradient(circle at 70% 82%, rgba(124, 91, 255, 0.1), transparent 24%),
-    linear-gradient(135deg, #f4f1e7 0%, #eeeae0 48%, #fff7ef 100%);
+    radial-gradient(circle at 10% 12%, rgba(38, 168, 156, 0.28), transparent 28%),
+    radial-gradient(circle at 90% 18%, rgba(159, 40, 88, 0.24), transparent 26%),
+    radial-gradient(circle at 70% 82%, rgba(89, 67, 184, 0.18), transparent 24%),
+    linear-gradient(135deg, #d9cfbf 0%, #d0c6b7 48%, #e5d7c8 100%);
 }
 
 .themeDark {
-  color: #f6f1e6;
+  --cream: #111520;
+  --cream-light: #171c2a;
+  --ink: #f0e6d6;
+  --muted: #d4c8b8;
+  --cyan: #1b766e;
+  --cyan-dark: #155a54;
+  --pink: #7d2045;
+  --pink-dark: #5f1834;
+  --purple: #7a62d8;
+  --shadow: rgba(0, 0, 0, 0.48);
+
+  color: var(--ink);
   background:
-    radial-gradient(circle at 10% 12%, rgba(55, 160, 172, 0.22), transparent 28%),
-    radial-gradient(circle at 90% 18%, rgba(175, 55, 82, 0.18), transparent 26%),
-    radial-gradient(circle at 70% 82%, rgba(82, 61, 168, 0.16), transparent 24%),
-    linear-gradient(135deg, #10131e 0%, #171927 50%, #0c0e17 100%);
+    radial-gradient(circle at 10% 12%, rgba(27, 118, 110, 0.3), transparent 28%),
+    radial-gradient(circle at 90% 18%, rgba(125, 32, 69, 0.3), transparent 26%),
+    radial-gradient(circle at 70% 82%, rgba(64, 48, 130, 0.24), transparent 24%),
+    linear-gradient(135deg, #050710 0%, #090c15 48%, #04060d 100%);
 }
 
 .appShell::before {
@@ -51,8 +73,8 @@ a {
   inset: 0;
   z-index: 0;
   background-image:
-    linear-gradient(120deg, rgba(0, 0, 0, 0.028) 1px, transparent 1px),
-    linear-gradient(60deg, rgba(0, 0, 0, 0.018) 1px, transparent 1px);
+    linear-gradient(120deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(60deg, rgba(0, 0, 0, 0.028) 1px, transparent 1px);
   background-size: 86px 86px;
   opacity: 0.42;
   animation: backgroundSlide 24s linear infinite;
@@ -60,7 +82,7 @@ a {
 }
 
 .themeDark::before {
-  opacity: 0.22;
+  opacity: 0.16;
 }
 
 @keyframes backgroundSlide {
@@ -90,14 +112,8 @@ a {
   padding: 10px 18px;
   border: 2px solid currentColor;
   border-radius: 12px;
-  background: rgba(250, 249, 243, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 10px 10px 0 rgba(29, 31, 42, 0.14);
-}
-
-.themeDark .header {
-  background: rgba(18, 21, 34, 0.94);
+  background: var(--cream-light);
+  box-shadow: 10px 10px 0 var(--shadow);
 }
 
 .namePlate {
@@ -107,8 +123,8 @@ a {
   min-height: 48px;
   padding: 0 16px;
   border-radius: 8px;
-  background: #1d1f2a;
-  color: #ffffff;
+  background: var(--ink);
+  color: var(--cream-light);
   font-weight: 950;
   letter-spacing: -0.03em;
   white-space: nowrap;
@@ -117,20 +133,9 @@ a {
 }
 
 .namePlate:hover {
-  background: #ffffff;
-  color: #1d1f2a;
-  border-color: #1d1f2a;
-}
-
-.themeDark .namePlate {
-  background: #f8f4ea;
-  color: #151724;
-}
-
-.themeDark .namePlate:hover {
-  background: #151724;
-  color: #f8f4ea;
-  border-color: #f8f4ea;
+  background: var(--cream-light);
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 .mainNav {
@@ -159,8 +164,9 @@ a {
 
 .mainNav a:hover,
 .navDropdown button:hover {
-  background: #62e2f1;
+  background: var(--cyan);
   border-color: currentColor;
+  color: var(--cream-light);
 }
 
 .navActions {
@@ -175,15 +181,11 @@ a {
   padding: 10px 14px;
   border: 2px solid currentColor;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.55);
+  background: transparent;
   color: inherit;
   font-weight: 950;
   cursor: pointer;
   transition: transform 0.16s ease, color 0.16s ease, background 0.16s ease;
-}
-
-.themeDark .actionButton {
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .actionButton:hover {
@@ -196,13 +198,13 @@ a {
 }
 
 .modeButton:hover {
-  background: #62e2f1;
-  color: #1d1f2a;
+  background: var(--cyan);
+  color: var(--cream-light);
 }
 
 .connectButton:hover {
-  background: #ff4f7b;
-  color: #ffffff;
+  background: var(--pink);
+  color: var(--cream-light);
 }
 
 .navDropdown {
@@ -226,17 +228,13 @@ a {
   padding: 8px;
   border: 2px solid currentColor;
   border-radius: 8px;
-  background: rgba(255, 253, 244, 0.98);
-  box-shadow: 8px 8px 0 rgba(29, 31, 42, 0.16);
+  background: var(--cream-light);
+  box-shadow: 8px 8px 0 var(--shadow);
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
   pointer-events: none;
   transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
-}
-
-.themeDark .dropdownMenu {
-  background: rgba(18, 21, 34, 0.98);
 }
 
 .navDropdown:hover .dropdownMenu,
@@ -257,8 +255,8 @@ a {
 }
 
 .dropdownMenu a:hover {
-  background: #ff4f7b;
-  color: #ffffff;
+  background: var(--pink);
+  color: var(--cream-light);
 }
 
 /* Moving nebula background */
@@ -272,7 +270,8 @@ a {
 }
 
 .gradientBubble,
-.softRibbon {
+.softRibbon,
+.shootingStreak {
   position: absolute;
   display: block;
   pointer-events: none;
@@ -280,74 +279,73 @@ a {
 
 .gradientBubble {
   border-radius: 999px;
-  filter: blur(42px);
-  opacity: 0.48;
-  transform: translate3d(0, 0, 0);
+  filter: blur(58px);
+  opacity: 0.62;
   animation: bubbleFloat 18s ease-in-out infinite alternate;
 }
 
 .bubbleOne {
-  width: 420px;
-  height: 300px;
-  top: 4%;
-  left: -9%;
+  width: 520px;
+  height: 340px;
+  top: 0%;
+  left: -12%;
   background:
-    radial-gradient(circle at 30% 42%, rgba(98, 226, 241, 0.72), transparent 48%),
-    radial-gradient(circle at 70% 38%, rgba(255, 79, 123, 0.38), transparent 52%),
-    radial-gradient(circle at 56% 72%, rgba(124, 91, 255, 0.28), transparent 54%);
+    radial-gradient(circle at 30% 42%, rgba(38, 168, 156, 0.85), transparent 48%),
+    radial-gradient(circle at 70% 38%, rgba(159, 40, 88, 0.52), transparent 52%),
+    radial-gradient(circle at 56% 72%, rgba(89, 67, 184, 0.4), transparent 54%);
 }
 
 .bubbleTwo {
-  width: 500px;
-  height: 360px;
-  top: 30%;
-  right: -12%;
+  width: 620px;
+  height: 420px;
+  top: 28%;
+  right: -16%;
   background:
-    radial-gradient(circle at 32% 52%, rgba(255, 79, 123, 0.46), transparent 48%),
-    radial-gradient(circle at 70% 38%, rgba(98, 226, 241, 0.42), transparent 52%),
-    radial-gradient(circle at 58% 72%, rgba(124, 91, 255, 0.26), transparent 54%);
+    radial-gradient(circle at 32% 52%, rgba(159, 40, 88, 0.56), transparent 48%),
+    radial-gradient(circle at 70% 38%, rgba(38, 168, 156, 0.52), transparent 52%),
+    radial-gradient(circle at 58% 72%, rgba(89, 67, 184, 0.38), transparent 54%);
   animation-duration: 23s;
 }
 
 .bubbleThree {
-  width: 560px;
-  height: 320px;
-  bottom: -10%;
+  width: 680px;
+  height: 390px;
+  bottom: -14%;
   left: 22%;
   background:
-    radial-gradient(circle at 24% 42%, rgba(98, 226, 241, 0.35), transparent 44%),
-    radial-gradient(circle at 62% 36%, rgba(255, 79, 123, 0.32), transparent 48%),
-    radial-gradient(circle at 76% 62%, rgba(124, 91, 255, 0.26), transparent 54%);
+    radial-gradient(circle at 24% 42%, rgba(38, 168, 156, 0.48), transparent 44%),
+    radial-gradient(circle at 62% 36%, rgba(159, 40, 88, 0.46), transparent 48%),
+    radial-gradient(circle at 76% 62%, rgba(89, 67, 184, 0.42), transparent 54%);
   animation-duration: 26s;
 }
 
 .bubbleFour {
-  width: 420px;
-  height: 240px;
-  top: 12%;
+  width: 490px;
+  height: 280px;
+  top: 10%;
   left: 40%;
   background:
-    radial-gradient(circle at 36% 44%, rgba(98, 226, 241, 0.26), transparent 46%),
-    radial-gradient(circle at 62% 48%, rgba(255, 79, 123, 0.22), transparent 50%),
-    radial-gradient(circle at 54% 72%, rgba(124, 91, 255, 0.2), transparent 54%);
+    radial-gradient(circle at 36% 44%, rgba(38, 168, 156, 0.42), transparent 46%),
+    radial-gradient(circle at 62% 48%, rgba(159, 40, 88, 0.36), transparent 50%),
+    radial-gradient(circle at 54% 72%, rgba(89, 67, 184, 0.32), transparent 54%);
   animation-duration: 21s;
 }
 
 .bubbleFive {
-  width: 360px;
-  height: 280px;
-  bottom: 10%;
-  left: -7%;
+  width: 460px;
+  height: 320px;
+  bottom: 8%;
+  left: -8%;
   background:
-    radial-gradient(circle at 36% 44%, rgba(255, 194, 92, 0.24), transparent 46%),
-    radial-gradient(circle at 62% 48%, rgba(98, 226, 241, 0.22), transparent 50%),
-    radial-gradient(circle at 54% 72%, rgba(255, 79, 123, 0.18), transparent 54%);
+    radial-gradient(circle at 36% 44%, rgba(202, 120, 47, 0.42), transparent 46%),
+    radial-gradient(circle at 62% 48%, rgba(38, 168, 156, 0.38), transparent 50%),
+    radial-gradient(circle at 54% 72%, rgba(159, 40, 88, 0.34), transparent 54%);
   animation-duration: 27s;
 }
 
 .themeDark .gradientBubble {
-  opacity: 0.36;
-  filter: blur(52px);
+  opacity: 0.38;
+  filter: blur(66px);
 }
 
 @keyframes bubbleFloat {
@@ -356,23 +354,80 @@ a {
   }
 
   50% {
-    transform: translate3d(34px, -26px, 0) scale(1.08);
+    transform: translate3d(46px, -36px, 0) scale(1.1);
   }
 
   100% {
-    transform: translate3d(-28px, 22px, 0) scale(1.14);
+    transform: translate3d(-40px, 32px, 0) scale(1.18);
+  }
+}
+
+.shootingStreak {
+  width: 360px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--pink), transparent);
+  filter: blur(0.3px);
+  opacity: 0.55;
+  transform: rotate(-18deg);
+  animation: streakMove 9s ease-in-out infinite;
+}
+
+.streakOne {
+  top: 18%;
+  left: -22%;
+}
+
+.streakTwo {
+  top: 54%;
+  left: 78%;
+  animation-delay: 2.4s;
+  animation-duration: 11s;
+}
+
+.streakThree {
+  top: 78%;
+  left: 8%;
+  animation-delay: 4.8s;
+  animation-duration: 12s;
+}
+
+.streakFour {
+  top: 34%;
+  left: 34%;
+  animation-delay: 6s;
+  animation-duration: 10s;
+}
+
+@keyframes streakMove {
+  0% {
+    translate: -120px 40px;
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.65;
+  }
+
+  62% {
+    opacity: 0.55;
+  }
+
+  100% {
+    translate: 420px -140px;
+    opacity: 0;
   }
 }
 
 .softRibbon {
-  width: 700px;
+  width: 760px;
   height: 190px;
-  border: 8px solid rgba(98, 226, 241, 0.22);
+  border: 8px solid rgba(38, 168, 156, 0.28);
   border-left-color: transparent;
   border-bottom-color: transparent;
   border-radius: 50%;
   filter: blur(1px);
-  opacity: 0.5;
+  opacity: 0.46;
   animation: ribbonDrift 20s ease-in-out infinite alternate;
 }
 
@@ -385,7 +440,7 @@ a {
 .ribbonTwo {
   bottom: 4%;
   right: -12%;
-  border-color: rgba(255, 79, 123, 0.2);
+  border-color: rgba(159, 40, 88, 0.26);
   border-left-color: transparent;
   border-top-color: transparent;
   transform: rotate(16deg);
@@ -398,7 +453,7 @@ a {
   }
 
   to {
-    translate: 28px -18px;
+    translate: 36px -24px;
   }
 }
 
@@ -438,9 +493,8 @@ a {
   border: 2px solid currentColor;
   border-radius: 14px;
   color: inherit;
-  background:
-    linear-gradient(180deg, rgba(255, 251, 243, 0.88), rgba(255, 251, 243, 0.88));
-  box-shadow: 10px 10px 0 rgba(29, 31, 42, 0.16);
+  background: var(--cream-light);
+  box-shadow: 10px 10px 0 var(--shadow);
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease,
@@ -448,81 +502,62 @@ a {
     color 0.22s ease;
 }
 
-.themeDark .homeTile {
-  background:
-    linear-gradient(180deg, rgba(24, 27, 42, 0.9), rgba(24, 27, 42, 0.9));
-}
-
 .homeTile:hover {
   transform: translateY(-4px) scaleY(1.01);
-  box-shadow: 14px 14px 0 rgba(29, 31, 42, 0.18);
+  box-shadow: 14px 14px 0 var(--shadow);
 }
 
-.aboutTile {
-  display: grid;
-  grid-template-columns: 1fr 0fr;
-  transition:
-    grid-template-columns 0.34s ease,
-    background 0.22s ease,
-    color 0.22s ease,
-    transform 0.22s ease,
-    box-shadow 0.22s ease;
+.tileOverlayLink {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .aboutTile:hover {
-  grid-template-columns: minmax(290px, 0.76fr) minmax(370px, 1fr);
-  background:
-    radial-gradient(circle at 80% 22%, rgba(255, 251, 243, 0.2), transparent 24%),
-    linear-gradient(180deg, rgba(98, 226, 241, 0.94), rgba(98, 226, 241, 0.94));
-  color: #fffdf4;
+  background: var(--cyan);
+  color: var(--cream-light);
 }
 
 .highlightTile:hover {
-  background:
-    radial-gradient(circle at 18% 18%, rgba(255, 251, 243, 0.34), transparent 24%),
-    linear-gradient(180deg, rgba(255, 79, 123, 0.94), rgba(255, 79, 123, 0.94));
-  color: #fffdf4;
+  background: var(--pink);
+  color: var(--cream-light);
 }
 
 .themeDark .aboutTile:hover {
-  background:
-    radial-gradient(circle at 80% 22%, rgba(255, 251, 243, 0.12), transparent 24%),
-    linear-gradient(180deg, rgba(69, 158, 169, 0.94), rgba(69, 158, 169, 0.94));
+  background: var(--cyan);
 }
 
 .themeDark .highlightTile:hover {
-  background:
-    radial-gradient(circle at 18% 18%, rgba(255, 251, 243, 0.11), transparent 24%),
-    linear-gradient(180deg, rgba(179, 55, 83, 0.94), rgba(179, 55, 83, 0.94));
+  background: var(--pink);
 }
 
 .homeTile::before {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 
 .aboutTile::before,
 .highlightTile::before {
   background:
-    linear-gradient(118deg, transparent 0%, transparent 42%, rgba(98, 226, 241, 0.22) 42.2%, transparent 45%),
-    linear-gradient(104deg, transparent 0%, transparent 74%, rgba(255, 79, 123, 0.2) 74.2%, transparent 76%),
-    radial-gradient(circle at 70% 72%, rgba(124, 91, 255, 0.08), transparent 24%);
+    linear-gradient(118deg, transparent 0%, transparent 42%, rgba(38, 168, 156, 0.2) 42.2%, transparent 45%),
+    linear-gradient(104deg, transparent 0%, transparent 74%, rgba(159, 40, 88, 0.18) 74.2%, transparent 76%),
+    radial-gradient(circle at 70% 72%, rgba(89, 67, 184, 0.08), transparent 24%);
 }
 
 .aboutTile:hover::before {
   background:
-    linear-gradient(118deg, transparent 0%, transparent 42%, rgba(255, 251, 243, 0.34) 42.2%, transparent 45%),
-    linear-gradient(104deg, transparent 0%, transparent 74%, rgba(255, 79, 123, 0.42) 74.2%, transparent 76%),
-    radial-gradient(circle at 72% 68%, rgba(255, 251, 243, 0.2), transparent 24%);
+    linear-gradient(118deg, transparent 0%, transparent 42%, rgba(242, 234, 220, 0.44) 42.2%, transparent 45%),
+    linear-gradient(104deg, transparent 0%, transparent 74%, rgba(159, 40, 88, 0.58) 74.2%, transparent 76%),
+    radial-gradient(circle at 72% 68%, rgba(242, 234, 220, 0.22), transparent 24%);
 }
 
 .highlightTile:hover::before {
   background:
-    linear-gradient(118deg, transparent 0%, transparent 42%, rgba(98, 226, 241, 0.42) 42.2%, transparent 45%),
-    linear-gradient(104deg, transparent 0%, transparent 74%, rgba(255, 251, 243, 0.42) 74.2%, transparent 76%),
-    radial-gradient(circle at 72% 68%, rgba(255, 251, 243, 0.2), transparent 24%);
+    linear-gradient(118deg, transparent 0%, transparent 42%, rgba(38, 168, 156, 0.52) 42.2%, transparent 45%),
+    linear-gradient(104deg, transparent 0%, transparent 74%, rgba(242, 234, 220, 0.45) 74.2%, transparent 76%),
+    radial-gradient(circle at 72% 68%, rgba(242, 234, 220, 0.2), transparent 24%);
 }
 
 .tileBaseContent {
@@ -535,8 +570,16 @@ a {
 }
 
 .aboutBase {
-  min-width: 0;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.aboutIdentity {
+  transition: transform 0.32s ease;
+}
+
+.aboutTile:hover .aboutIdentity {
+  transform: translateY(-28px);
 }
 
 .highlightContent {
@@ -554,15 +597,15 @@ a {
 }
 
 .tileKicker {
-  color: #5d4acb;
+  color: var(--purple);
 }
 
 .homeTile:hover .tileKicker {
-  color: #fffdf4;
+  color: var(--cream-light);
 }
 
 .aboutBase h1 {
-  margin: 14px 0 12px;
+  margin: 14px 0 10px;
   font-size: clamp(4.1rem, 7.3vw, 7.5rem);
   line-height: 0.84;
   letter-spacing: -0.085em;
@@ -579,83 +622,84 @@ a {
 .tileBaseContent p {
   margin: 0;
   max-width: 540px;
-  color: #3f4252;
+  color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.55;
 }
 
-.themeDark .tileBaseContent p {
-  color: #dcd9df;
-}
-
 .homeTile:hover .tileBaseContent p {
-  color: #fffdf4;
+  color: var(--cream-light);
 }
 
 .tileFooterText {
   margin-top: 12px;
   font-size: 1.04rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .rotationPanel {
   position: relative;
   z-index: 3;
-  min-width: 0;
-  padding: 34px 34px 34px 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  margin-top: 12px;
   opacity: 0;
-  transform: translateX(18px);
-  transition: opacity 0.24s ease, transform 0.24s ease;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(18px);
+  transition:
+    opacity 0.28s ease,
+    max-height 0.34s ease,
+    transform 0.28s ease;
 }
 
 .aboutTile:hover .rotationPanel {
   opacity: 1;
-  transform: translateX(0);
+  max-height: 300px;
+  transform: translateY(0);
 }
 
 .rotationPanel .tileKicker {
-  color: #fffdf4;
-  margin-bottom: 18px;
+  color: var(--cream-light);
+  margin-bottom: 12px;
 }
 
 .rotationGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
-.rotationItem {
+.rotationButton {
   min-height: 86px;
-  padding: 14px;
-  border: 2px solid #1d1f2a;
-  border-radius: 8px;
-  background: rgba(255, 251, 243, 0.92);
-  color: #1d1f2a;
+  padding: 13px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--cream-light);
+  color: var(--pink);
+  box-shadow: 5px 5px 0 rgba(159, 40, 88, 0.18);
+  pointer-events: auto;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
-.themeDark .rotationItem {
-  background: rgba(255, 251, 243, 0.94);
+.rotationButton:hover {
+  transform: translateY(-3px);
+  background: var(--pink);
+  color: var(--cream-light);
 }
 
-.rotationItem span {
+.rotationButton span {
   display: block;
-  color: #5d4acb;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 950;
   margin-bottom: 8px;
 }
 
-.rotationItem strong {
+.rotationButton strong {
   display: block;
-  color: #1d1f2a;
-  font-size: 0.96rem;
-  line-height: 1.25;
+  font-size: 0.93rem;
+  line-height: 1.22;
 }
 
 .highlightLabel {
@@ -664,9 +708,7 @@ a {
   left: 34px;
   z-index: 3;
   padding: 10px 14px;
-  background: #ff4f7b;
-  color: #ffffff;
-  border: 2px solid #1d1f2a;
+  border: 2px solid var(--ink);
   border-radius: 6px;
   font-size: 0.76rem;
   font-weight: 950;
@@ -674,9 +716,28 @@ a {
   letter-spacing: 0.12em;
 }
 
+.statusInProgress {
+  background:
+    repeating-linear-gradient(135deg,
+      #f5c84b 0 10px,
+      #151722 10px 20px);
+  color: #ffffff;
+  text-shadow: 1px 1px 0 #151722;
+}
+
+.statusPlanned {
+  background:
+    linear-gradient(90deg, rgba(38, 168, 156, 0.18) 1px, transparent 1px),
+    linear-gradient(rgba(38, 168, 156, 0.18) 1px, transparent 1px),
+    #dbeeff;
+  background-size: 12px 12px;
+  color: #151722;
+}
+
 .highlightTile:hover .highlightLabel {
-  background: #62e2f1;
-  color: #1d1f2a;
+  background: var(--cyan);
+  color: #151722;
+  text-shadow: none;
 }
 
 .tagRow {
@@ -696,8 +757,8 @@ a {
   padding: 8px 11px;
   border-radius: 999px;
   border: 2px solid currentColor;
-  background: #ffffff;
-  color: #1d1f2a;
+  background: var(--cream-light);
+  color: #151722;
   font-size: 0.78rem;
   font-weight: 900;
 }
@@ -708,10 +769,10 @@ a {
   bottom: 28px;
   z-index: 3;
   padding: 12px 16px;
-  border: 2px solid #1d1f2a;
+  border: 2px solid #151722;
   border-radius: 999px;
-  background: #62e2f1;
-  color: #1d1f2a;
+  background: var(--cyan);
+  color: #151722;
   font-weight: 950;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -719,8 +780,8 @@ a {
 }
 
 .highlightTile:hover .tileCTA {
-  background: #fffdf4;
-  color: #1d1f2a;
+  background: var(--cream-light);
+  color: #151722;
 }
 
 .tileStripe {
@@ -734,19 +795,15 @@ a {
 }
 
 .aboutStripe {
-  background: #ff4f7b;
-}
-
-.aboutTile:hover .aboutStripe {
-  background: #ff4f7b;
+  background: var(--pink);
 }
 
 .highlightStripe {
-  background: #ff4f7b;
+  background: var(--pink);
 }
 
 .highlightTile:hover .highlightStripe {
-  background: #62e2f1;
+  background: var(--cyan);
 }
 
 /* Contact modal */
@@ -757,7 +814,7 @@ a {
   z-index: 100;
   display: grid;
   place-items: center;
-  background: rgba(29, 31, 42, 0.38);
+  background: rgba(21, 23, 34, 0.52);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -767,14 +824,23 @@ a {
   width: min(720px, calc(100% - 36px));
   min-height: 50vh;
   padding: 34px;
-  border: 2px solid #1d1f2a;
+  border: 2px solid #151722;
   border-radius: 14px;
   background:
-    radial-gradient(circle at 92% 18%, rgba(98, 226, 241, 0.26), transparent 24%),
-    radial-gradient(circle at 15% 88%, rgba(255, 79, 123, 0.16), transparent 26%),
-    #fffdf4;
-  color: #1d1f2a;
-  box-shadow: 14px 14px 0 rgba(29, 31, 42, 0.2);
+    radial-gradient(circle at 92% 18%, rgba(38, 168, 156, 0.28), transparent 24%),
+    radial-gradient(circle at 15% 88%, rgba(159, 40, 88, 0.2), transparent 26%),
+    var(--cream-light);
+  color: #151722;
+  box-shadow: 14px 14px 0 rgba(21, 23, 34, 0.24);
+}
+
+.themeDark .contactModal {
+  background:
+    radial-gradient(circle at 92% 18%, rgba(27, 118, 110, 0.24), transparent 24%),
+    radial-gradient(circle at 15% 88%, rgba(125, 32, 69, 0.22), transparent 26%),
+    #0b0e17;
+  color: var(--ink);
+  border-color: var(--ink);
 }
 
 .modalClose {
@@ -783,10 +849,10 @@ a {
   right: 18px;
   width: 42px;
   height: 42px;
-  border: 2px solid #1d1f2a;
+  border: 2px solid currentColor;
   border-radius: 999px;
   background: transparent;
-  color: #1d1f2a;
+  color: inherit;
   font-size: 1.6rem;
   line-height: 1;
   cursor: pointer;
@@ -801,7 +867,7 @@ a {
 
 .modalNote {
   max-width: 560px;
-  color: #3f4252;
+  color: var(--muted);
   line-height: 1.6;
 }
 
@@ -809,9 +875,9 @@ a {
   display: inline-flex;
   margin: 18px 0 26px;
   padding: 14px 16px;
-  border: 2px solid #1d1f2a;
+  border: 2px solid currentColor;
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--cream-light);
   font-weight: 900;
 }
 
@@ -823,15 +889,15 @@ a {
 
 .modalButton {
   padding: 12px 16px;
-  border: 2px solid #1d1f2a;
+  border: 2px solid currentColor;
   border-radius: 999px;
   background: transparent;
   font-weight: 950;
 }
 
 .githubModal:hover {
-  background: #1d1f2a;
-  color: #ffffff;
+  background: #151722;
+  color: #f5efe3;
 }
 
 .linkedinModal:hover {
@@ -840,8 +906,8 @@ a {
 }
 
 .resumeModal:hover {
-  background: #ff4f7b;
-  color: #ffffff;
+  background: var(--pink);
+  color: var(--cream-light);
 }
 
 /* Pages */
@@ -857,13 +923,8 @@ a {
 .courseworkCard {
   border: 2px solid currentColor;
   border-radius: 14px;
-  background: rgba(255, 253, 244, 0.92);
-  box-shadow: 10px 10px 0 rgba(29, 31, 42, 0.16);
-}
-
-.themeDark .pagePanel,
-.themeDark .courseworkCard {
-  background: rgba(20, 23, 37, 0.94);
+  background: var(--cream-light);
+  box-shadow: 10px 10px 0 var(--shadow);
 }
 
 .pagePanel {
@@ -882,21 +943,63 @@ a {
 .pageLead,
 .pagePanel p,
 .courseworkCard p {
-  color: #3f4252;
+  color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.65;
 }
 
-.themeDark .pageLead,
-.themeDark .pagePanel p,
-.themeDark .courseworkCard p {
-  color: #d8d6df;
+.projectPagePanel {
+  position: relative;
+  overflow: hidden;
+}
+
+.projectPagePanel.statusInProgress::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: -70px;
+  width: 280px;
+  height: 42px;
+  transform: rotate(18deg);
+  background:
+    repeating-linear-gradient(135deg,
+      #f5c84b 0 12px,
+      #151722 12px 24px);
+  border: 2px solid #151722;
+}
+
+.projectPagePanel.statusPlanned::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(38, 168, 156, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(38, 168, 156, 0.16) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+.projectStatusBanner {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  margin-bottom: 18px;
+}
+
+.projectStatusBanner span {
+  display: inline-flex;
+  padding: 10px 14px;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .pageSection {
   margin: 46px 0;
   padding-top: 28px;
-  border-top: 2px solid rgba(29, 31, 42, 0.18);
+  border-top: 2px solid rgba(21, 23, 34, 0.2);
 }
 
 .pageSection h2,
@@ -917,8 +1020,8 @@ a {
   padding: 12px 16px;
   border: 2px solid currentColor;
   border-radius: 999px;
-  background: #62e2f1;
-  color: #1d1f2a;
+  background: var(--cyan);
+  color: #151722;
   font-weight: 950;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -936,6 +1039,42 @@ a {
   padding: 30px;
 }
 
+.courseList {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.coursePill {
+  display: grid;
+  gap: 4px;
+  padding: 13px;
+  border-radius: 9px;
+  background: #fff8eb;
+  color: #151722;
+  box-shadow: 4px 4px 0 rgba(38, 168, 156, 0.18);
+}
+
+.themeDark .coursePill {
+  background: #0b0e17;
+  color: var(--ink);
+}
+
+.coursePill strong {
+  color: var(--pink);
+  font-size: 0.9rem;
+}
+
+.coursePill span {
+  font-weight: 850;
+}
+
+.coursePill em {
+  color: var(--muted);
+  font-style: normal;
+  font-size: 0.85rem;
+}
+
 .relatedList {
   display: flex;
   flex-wrap: wrap;
@@ -951,8 +1090,8 @@ a {
   padding: 8px 11px;
   border: 2px solid currentColor;
   border-radius: 999px;
-  background: #ffffff;
-  color: #1d1f2a;
+  background: var(--cream-light);
+  color: var(--ink);
   font-size: 0.82rem;
   font-weight: 850;
 }
@@ -971,18 +1110,14 @@ a {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #1d1f2a;
-}
-
-.themeDark .cursorDot {
-  background: #fffdf4;
+  background: var(--ink);
 }
 
 .cursorRing {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  border: 2px solid #ff4f7b;
+  border: 2px solid var(--pink);
   transition:
     width 0.16s ease,
     height 0.16s ease,
@@ -993,8 +1128,8 @@ a {
 .cursorRing.cursorHover {
   width: 56px;
   height: 56px;
-  border-color: #62e2f1;
-  background: rgba(98, 226, 241, 0.12);
+  border-color: var(--cyan);
+  background: rgba(38, 168, 156, 0.16);
 }
 
 /* Responsive */
@@ -1025,15 +1160,10 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .aboutTile,
-  .aboutTile:hover {
-    grid-template-columns: 1fr;
-  }
-
   .rotationPanel {
     opacity: 1;
+    max-height: none;
     transform: none;
-    padding: 0 34px 34px;
   }
 
   .homeTile {
@@ -1074,7 +1204,6 @@ a {
   }
 
   .tileBaseContent,
-  .rotationPanel,
   .pagePanel,
   .courseworkCard,
   .contactModal {
@@ -1093,6 +1222,6 @@ a {
   }
 
   .homeTile {
-    min-height: 680px;
+    min-height: 720px;
   }
 }

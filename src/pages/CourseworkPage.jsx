@@ -9,8 +9,8 @@ function CourseworkPage() {
                 <h1>Coursework and technical growth</h1>
 
                 <p className="pageLead">
-                    This section will connect coursework to projects, skills, and evidence
-                    of learning as I continue building the portfolio.
+                    Coursework connected to computer science, informatics, mathematics,
+                    public policy, and project-based learning.
                 </p>
             </section>
 
@@ -22,6 +22,16 @@ function CourseworkPage() {
                         <h2>{item.area}</h2>
 
                         <p>{item.details}</p>
+
+                        <div className="courseList">
+                            {item.courses.map((course) => (
+                                <div className="coursePill" key={course.code}>
+                                    <strong>{course.code}</strong>
+                                    <span>{course.name}</span>
+                                    <em>{course.status}</em>
+                                </div>
+                            ))}
+                        </div>
 
                         <div className="relatedList">
                             <strong>Related projects</strong>

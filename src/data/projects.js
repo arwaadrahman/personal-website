@@ -3,9 +3,10 @@ export const projects = [
         slug: "policy-analysis",
         title: "Policy Analysis",
         shortTitle: "Policy Analysis",
-        status: "Featured",
+        status: "In progress",
+        statusType: "in-progress",
         description:
-            "A public policy analysis project using data, visualization, and eventually machine learning to explore real-world civic questions.",
+            "A public policy analysis project using data, visualization, and eventually machine learning to explore civic questions.",
         details:
             "This project will focus on using public datasets to investigate a policy question, communicate insights clearly, and eventually incorporate a simple predictive model. It is meant to connect data analysis, public policy, visualization, and technical storytelling.",
         tools: ["Python", "Pandas", "Visualization", "Policy", "Machine Learning"],
@@ -15,6 +16,7 @@ export const projects = [
         title: "Sports Analytics Project",
         shortTitle: "Sports Analytics",
         status: "Planned",
+        statusType: "planned",
         description:
             "An analytics project using sports data to compare players, identify trends, and communicate insights clearly.",
         details:
@@ -26,6 +28,7 @@ export const projects = [
         title: "Solitaire Card Game",
         shortTitle: "Solitaire",
         status: "Planned",
+        statusType: "planned",
         description:
             "An interactive card game focused on React state, game rules, user interaction, and clean front-end design.",
         details:
@@ -36,7 +39,8 @@ export const projects = [
         slug: "history-timeline",
         title: "History Timeline Website",
         shortTitle: "History Timeline",
-        status: "Coursework-linked",
+        status: "Planned",
+        statusType: "planned",
         description:
             "A visual timeline project connecting coursework, historical events, and interactive storytelling.",
         details:

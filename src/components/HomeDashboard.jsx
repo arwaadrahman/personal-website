@@ -10,38 +10,50 @@ function HomeDashboard() {
                 <span className="gradientBubble bubbleThree" />
                 <span className="gradientBubble bubbleFour" />
                 <span className="gradientBubble bubbleFive" />
+                <span className="shootingStreak streakOne" />
+                <span className="shootingStreak streakTwo" />
+                <span className="shootingStreak streakThree" />
+                <span className="shootingStreak streakFour" />
                 <span className="softRibbon ribbonOne" />
                 <span className="softRibbon ribbonTwo" />
             </div>
 
             <section className="homeTiles" aria-label="Homepage dashboard">
-                <Link className="homeTile aboutTile" to="/about">
+                <article className="homeTile aboutTile">
+                    <Link className="tileOverlayLink" to="/about" aria-label="About Arwaad Rahman" />
+
                     <div className="tileBaseContent aboutBase">
-                        <div>
+                        <div className="aboutIdentity">
                             <p className="tileKicker">About</p>
                             <h1>Arwaad Rahman</h1>
                             <p className="tileFooterText">More about me</p>
                         </div>
-                    </div>
 
-                    <div className="rotationPanel">
-                        <p className="tileKicker">Current Rotation</p>
+                        <div className="rotationPanel">
+                            <p className="tileKicker">Current Rotation</p>
 
-                        <div className="rotationGrid">
-                            {currentRotation.map((item) => (
-                                <div className="rotationItem" key={item.label}>
-                                    <span>{item.label}</span>
-                                    <strong>{item.value}</strong>
-                                </div>
-                            ))}
+                            <div className="rotationGrid">
+                                {currentRotation.map((item) => (
+                                    <a
+                                        className="rotationButton"
+                                        key={item.label}
+                                        href={item.href}
+                                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                                    >
+                                        <span>{item.label}</span>
+                                        <strong>{item.value}</strong>
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
                     <div className="tileStripe aboutStripe" />
-                </Link>
+                </article>
 
                 <Link className="homeTile highlightTile" to="/projects/policy-analysis">
-                    <div className="highlightLabel">Featured Highlight</div>
+                    <div className="highlightLabel statusInProgress">In progress</div>
 
                     <div className="tileBaseContent highlightContent">
                         <p className="tileKicker">Project</p>
