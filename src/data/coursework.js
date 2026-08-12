@@ -5,9 +5,30 @@ export const coursework = [
         details:
             "Programming, problem solving, software development, and data structures.",
         courses: [
-            { code: "CSE 122", name: "Programming foundations", status: "Completed" },
-            { code: "CSE 123", name: "Programming and software practice", status: "Completed" },
-            { code: "CSE 373", name: "Data structures and algorithms", status: "Currently taking" },
+            {
+                code: "CSE 122",
+                name: "Programming foundations",
+                status: "Completed",
+                statusType: "completed",
+            },
+            {
+                code: "CSE 123",
+                name: "Programming and software practice",
+                status: "Completed",
+                statusType: "completed",
+            },
+            {
+                code: "CSE 373",
+                name: "Data structures and algorithms",
+                status: "In progress",
+                statusType: "in-progress",
+            },
+            {
+                code: "CSE 414",
+                name: "Database systems",
+                status: "Planned",
+                statusType: "planned",
+            },
         ],
         relatedProjects: ["Solitaire Card Game", "Personal Portfolio Website"],
     },
@@ -17,8 +38,24 @@ export const coursework = [
         details:
             "Quantitative reasoning for computer science, analytics, and machine learning.",
         courses: [
-            { code: "MATH 126", name: "Calculus III", status: "Completed" },
-            { code: "MATH 208", name: "Linear algebra", status: "In progress" },
+            {
+                code: "MATH 126",
+                name: "Calculus III",
+                status: "Completed",
+                statusType: "completed",
+            },
+            {
+                code: "MATH 208",
+                name: "Linear algebra",
+                status: "In progress",
+                statusType: "in-progress",
+            },
+            {
+                code: "STAT 311",
+                name: "Statistical methods",
+                status: "Planned",
+                statusType: "planned",
+            },
         ],
         relatedProjects: ["Policy Analysis", "Sports Analytics Project"],
     },
@@ -28,8 +65,24 @@ export const coursework = [
         details:
             "Human-centered technology, information systems, data, and product thinking.",
         courses: [
-            { code: "INFO 200", name: "Intellectual foundations of informatics", status: "Completed" },
-            { code: "INFO 280", name: "Informatics application preparation", status: "Currently taking" },
+            {
+                code: "INFO 200",
+                name: "Intellectual foundations of informatics",
+                status: "Completed",
+                statusType: "completed",
+            },
+            {
+                code: "INFO 201",
+                name: "Technical foundations of informatics",
+                status: "Planned",
+                statusType: "planned",
+            },
+            {
+                code: "INFO 340",
+                name: "Client-side development",
+                status: "Planned",
+                statusType: "planned",
+            },
         ],
         relatedProjects: ["Policy Analysis", "Personal Portfolio Website"],
     },
@@ -39,9 +92,24 @@ export const coursework = [
         details:
             "Policy analysis, writing, history, interdisciplinary thinking, and public impact.",
         courses: [
-            { code: "PUBPOL 201", name: "Public policy foundations", status: "Completed" },
-            { code: "CHID 320", name: "Interdisciplinary humanities coursework", status: "Completed" },
-            { code: "CLAS 101", name: "Classics / humanities foundation", status: "Completed" },
+            {
+                code: "PUBPOL 201",
+                name: "Public policy foundations",
+                status: "Completed",
+                statusType: "completed",
+            },
+            {
+                code: "CHID 320",
+                name: "Interdisciplinary humanities coursework",
+                status: "Completed",
+                statusType: "completed",
+            },
+            {
+                code: "CLAS 101",
+                name: "Classics / humanities foundation",
+                status: "Completed",
+                statusType: "completed",
+            },
         ],
         relatedProjects: ["Policy Analysis", "History Timeline Website"],
     },

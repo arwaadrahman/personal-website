@@ -58,7 +58,8 @@ function HomeDashboard() {
                 </article>
 
                 <Link className="homeTile highlightTile" to="/projects/policy-analysis">
-                    <div className="highlightLabel statusInProgressLabel">In progress</div>
+                    <div className="highlightLabel weeklyHighlightLabel">Highlight of the week</div>
+                    <div className="projectMiniStatus statusInProgressLabel">In progress</div>
 
                     <div className="tileBaseContent highlightContent">
                         <p className="tileKicker">Project</p>

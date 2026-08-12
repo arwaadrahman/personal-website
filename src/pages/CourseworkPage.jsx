@@ -25,7 +25,10 @@ function CourseworkPage() {
 
                         <div className="courseList">
                             {item.courses.map((course) => (
-                                <div className="coursePill" key={course.code}>
+                                <div
+                                    className={`coursePill course-${course.statusType}`}
+                                    key={course.code}
+                                >
                                     <strong>{course.code}</strong>
                                     <span>{course.name}</span>
                                     <em>{course.status}</em>

@@ -58,7 +58,7 @@ a {
   --pink: #7d2045;
   --pink-dark: #5f1834;
   --purple: #8a74e6;
-  --shadow: rgba(0, 0, 0, 0.5);
+  --shadow: transparent;
 
   color: var(--ink);
   background:
@@ -115,6 +115,10 @@ a {
   border-radius: 12px;
   background: var(--cream-light);
   box-shadow: 10px 10px 0 var(--shadow);
+}
+
+.themeDark .header {
+  box-shadow: none;
 }
 
 .namePlate {
@@ -236,6 +240,10 @@ a {
   transform: translateY(6px);
   pointer-events: none;
   transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+
+.themeDark .dropdownMenu {
+  box-shadow: none;
 }
 
 .navDropdown:hover .dropdownMenu,
@@ -526,9 +534,17 @@ a {
     color 0.22s ease;
 }
 
+.themeDark .homeTile {
+  box-shadow: none;
+}
+
 .homeTile:hover {
   transform: translateY(-4px) scaleY(1.01);
   box-shadow: 14px 14px 0 var(--shadow);
+}
+
+.themeDark .homeTile:hover {
+  box-shadow: none;
 }
 
 .tileOverlayLink {
@@ -545,6 +561,20 @@ a {
 .highlightTile:hover {
   background: var(--pink);
   color: var(--cream-light);
+}
+
+.themeDark .highlightTile,
+.themeDark .highlightTile h2,
+.themeDark .highlightTile p,
+.themeDark .highlightTile .tileKicker {
+  color: var(--ink);
+}
+
+.themeDark .highlightTile:hover,
+.themeDark .highlightTile:hover h2,
+.themeDark .highlightTile:hover p,
+.themeDark .highlightTile:hover .tileKicker {
+  color: #ffffff;
 }
 
 .homeTile::before {
@@ -588,10 +618,10 @@ a {
 
 .aboutBase {
   justify-content: flex-end;
-  pointer-events: none;
 }
 
 .aboutIdentity {
+  pointer-events: none;
   transition: transform 0.32s ease;
 }
 
@@ -601,7 +631,7 @@ a {
 
 .highlightContent {
   justify-content: flex-end;
-  padding-top: 92px;
+  padding-top: 110px;
 }
 
 .tileKicker,
@@ -698,6 +728,10 @@ a {
   transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
+.themeDark .rotationButton {
+  box-shadow: none;
+}
+
 .rotationButton:hover {
   transform: translateY(-3px);
   background: var(--pink);
@@ -726,10 +760,9 @@ a {
   color: var(--cream-light);
 }
 
-.highlightLabel {
+.highlightLabel,
+.projectMiniStatus {
   position: absolute;
-  top: 34px;
-  left: 34px;
   z-index: 3;
   padding: 10px 14px;
   border: 2px solid #151722;
@@ -740,13 +773,28 @@ a {
   letter-spacing: 0.12em;
 }
 
+.highlightLabel {
+  top: 34px;
+  left: 34px;
+}
+
+.projectMiniStatus {
+  top: 34px;
+  left: 242px;
+}
+
+.weeklyHighlightLabel {
+  background: var(--cyan);
+  color: #ffffff;
+}
+
 .statusInProgressLabel {
   background:
-    linear-gradient(rgba(21, 23, 34, 0.3), rgba(21, 23, 34, 0.3)),
+    linear-gradient(rgba(21, 23, 34, 0.12), rgba(21, 23, 34, 0.12)),
     repeating-linear-gradient(135deg,
-      #f5c84b 0 12px,
-      #151722 12px 24px);
-  color: #fff8e8;
+      #ffd451 0 14px,
+      #151722 14px 24px);
+  color: #fffdf2;
   text-shadow:
     -1px -1px 0 #151722,
     1px -1px 0 #151722,
@@ -764,13 +812,13 @@ a {
   text-shadow: none;
 }
 
-.highlightTile:hover .highlightLabel.statusInProgressLabel {
-  background:
-    linear-gradient(rgba(21, 23, 34, 0.3), rgba(21, 23, 34, 0.3)),
-    repeating-linear-gradient(135deg,
-      #f5c84b 0 12px,
-      #151722 12px 24px);
-  color: #fff8e8;
+.highlightTile:hover .weeklyHighlightLabel {
+  background: var(--cream-light);
+  color: #151722;
+}
+
+.highlightTile:hover .projectMiniStatus {
+  border-color: #151722;
 }
 
 .tagRow {
@@ -797,10 +845,10 @@ a {
   text-shadow: none;
 }
 
-.themeDark .tagRow span {
-  background: #f0e6d6;
-  color: #151722;
-  border-color: #f0e6d6;
+.themeDark .highlightTile .tagRow span {
+  background: #0b0e17;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .highlightTile:hover .tagRow span {
@@ -832,8 +880,9 @@ a {
 }
 
 .highlightTile:hover .tileCTA {
-  background: var(--cream-light);
-  color: #151722;
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 
 .tileStripe {
@@ -897,6 +946,7 @@ a {
     #070912;
   color: #f0e6d6;
   border-color: #f0e6d6;
+  box-shadow: none;
 }
 
 .modalClose {
@@ -1006,13 +1056,60 @@ a {
   box-shadow: 10px 10px 0 var(--shadow);
 }
 
-.pagePanel {
+.themeDark .pagePanel,
+.themeDark .courseworkCard {
+  box-shadow: none;
+}
+
+.pagePanel,
+.projectFrame {
   max-width: 1120px;
   margin: 0 auto;
+}
+
+.pagePanel {
   padding: 44px;
 }
 
-.pagePanel h1 {
+.projectFrame {
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 10px 10px 0 var(--shadow);
+}
+
+.themeDark .projectFrame {
+  box-shadow: none;
+}
+
+.projectInProgress {
+  background:
+    repeating-linear-gradient(135deg,
+      #ffd451 0 16px,
+      #151722 16px 28px);
+}
+
+.projectPlanned {
+  background:
+    linear-gradient(90deg, rgba(38, 168, 156, 0.55) 1px, transparent 1px),
+    linear-gradient(rgba(38, 168, 156, 0.55) 1px, transparent 1px),
+    #dbeeff;
+  background-size: 18px 18px;
+}
+
+.projectPageInner {
+  position: relative;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  background: var(--cream-light);
+  padding: 44px;
+}
+
+.themeDark .projectPageInner {
+  background: var(--cream-light);
+}
+
+.pagePanel h1,
+.projectPageInner h1 {
   margin: 14px 0 22px;
   font-size: clamp(3.6rem, 7vw, 7rem);
   line-height: 0.86;
@@ -1021,63 +1118,11 @@ a {
 
 .pageLead,
 .pagePanel p,
+.projectPageInner p,
 .courseworkCard p {
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.65;
-}
-
-.projectPagePanel {
-  overflow: hidden;
-}
-
-.projectInProgress {
-  border-top-width: 16px;
-  border-image:
-    repeating-linear-gradient(90deg,
-      #f5c84b 0 22px,
-      #151722 22px 44px) 16;
-}
-
-.projectInProgress::before {
-  content: "";
-  position: absolute;
-  top: 22px;
-  right: -70px;
-  width: 280px;
-  height: 42px;
-  transform: rotate(18deg);
-  background:
-    repeating-linear-gradient(135deg,
-      #f5c84b 0 12px,
-      #151722 12px 24px);
-  border: 2px solid #151722;
-  z-index: 0;
-}
-
-.projectPlanned {
-  border-top-width: 16px;
-  border-image:
-    repeating-linear-gradient(90deg,
-      rgba(38, 168, 156, 0.9) 0 8px,
-      rgba(219, 238, 255, 1) 8px 16px) 16;
-}
-
-.projectPlanned::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(38, 168, 156, 0.16) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(38, 168, 156, 0.16) 1px, transparent 1px);
-  background-size: 22px 22px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.projectPagePanel>* {
-  position: relative;
-  z-index: 1;
 }
 
 .projectStatusBanner {
@@ -1099,6 +1144,10 @@ a {
   margin: 46px 0;
   padding-top: 28px;
   border-top: 2px solid rgba(21, 23, 34, 0.2);
+}
+
+.themeDark .pageSection {
+  border-top-color: rgba(240, 230, 214, 0.24);
 }
 
 .pageSection h2,
@@ -1149,19 +1198,68 @@ a {
   gap: 4px;
   padding: 13px;
   border-radius: 9px;
-  background: #fff8eb;
   color: #151722;
+}
+
+.course-completed {
+  background: #fff8eb;
   box-shadow: 4px 4px 0 rgba(38, 168, 156, 0.18);
 }
 
-.themeDark .coursePill {
+.course-in-progress {
+  background:
+    linear-gradient(rgba(21, 23, 34, 0.06), rgba(21, 23, 34, 0.06)),
+    repeating-linear-gradient(135deg,
+      #ffd451 0 12px,
+      #151722 12px 20px);
+  color: #fff8e8;
+}
+
+.course-planned {
+  background:
+    linear-gradient(90deg, rgba(38, 168, 156, 0.26) 1px, transparent 1px),
+    linear-gradient(rgba(38, 168, 156, 0.26) 1px, transparent 1px),
+    #dbeeff;
+  background-size: 12px 12px;
+}
+
+.themeDark .course-completed {
   background: #0b0e17;
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.themeDark .course-in-progress {
+  background:
+    linear-gradient(rgba(21, 23, 34, 0.1), rgba(21, 23, 34, 0.1)),
+    repeating-linear-gradient(135deg,
+      #ffd451 0 12px,
+      #151722 12px 20px);
+  color: #ffffff;
+}
+
+.themeDark .course-planned {
+  background:
+    linear-gradient(90deg, rgba(38, 168, 156, 0.38) 1px, transparent 1px),
+    linear-gradient(rgba(38, 168, 156, 0.38) 1px, transparent 1px),
+    #0b0e17;
   color: var(--ink);
 }
 
 .coursePill strong {
   color: var(--pink);
   font-size: 0.9rem;
+}
+
+.course-in-progress strong,
+.course-in-progress span,
+.course-in-progress em {
+  color: #fff8e8;
+  text-shadow:
+    -1px -1px 0 #151722,
+    1px -1px 0 #151722,
+    -1px 1px 0 #151722,
+    1px 1px 0 #151722;
 }
 
 .coursePill span {
@@ -1268,6 +1366,11 @@ a {
   .homeTile {
     min-height: 620px;
   }
+
+  .projectMiniStatus {
+    top: 86px;
+    left: 34px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1304,6 +1407,7 @@ a {
 
   .tileBaseContent,
   .pagePanel,
+  .projectPageInner,
   .courseworkCard,
   .contactModal {
     padding: 24px;
@@ -1311,7 +1415,8 @@ a {
 
   .aboutBase h1,
   .tileBaseContent h2,
-  .pagePanel h1 {
+  .pagePanel h1,
+  .projectPageInner h1 {
     font-size: clamp(3.3rem, 15vw, 5rem);
   }
 
