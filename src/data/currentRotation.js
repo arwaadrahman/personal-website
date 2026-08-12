@@ -15,4 +15,12 @@ export const currentRotation = [
         label: "Playing",
         value: "To be updated",
     },
+    {
+        label: "Building",
+        value: "Personal portfolio website",
+    },
+    {
+        label: "Hyperfixating on",
+        value: "Portfolio UI and project ideas",
+    },
 ];

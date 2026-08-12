@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
-function Header({ theme, onThemeToggle, onContactOpen }) {
+function Header({ onThemeToggle, onContactOpen }) {
     const [isProjectsOpen, setIsProjectsOpen] = useState(false);
 
     return (
@@ -44,7 +44,7 @@ function Header({ theme, onThemeToggle, onContactOpen }) {
 
             <div className="navActions">
                 <button className="actionButton modeButton" type="button" onClick={onThemeToggle}>
-                    {theme === "light" ? "Dark" : "Light"}
+                    ☾
                 </button>
 
                 <button className="actionButton connectButton" type="button" onClick={onContactOpen}>

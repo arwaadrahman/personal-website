@@ -5,30 +5,29 @@ function HomeDashboard() {
     return (
         <main className="homePage">
             <div className="backgroundFX" aria-hidden="true">
-                <span className="burst burstOne" />
-                <span className="burst burstTwo" />
-                <span className="burst burstThree" />
-                <span className="ribbon ribbonOne" />
-                <span className="ribbon ribbonTwo" />
+                <span className="gradientBubble bubbleOne" />
+                <span className="gradientBubble bubbleTwo" />
+                <span className="gradientBubble bubbleThree" />
+                <span className="gradientBubble bubbleFour" />
+                <span className="gradientBubble bubbleFive" />
+                <span className="softRibbon ribbonOne" />
+                <span className="softRibbon ribbonTwo" />
             </div>
 
             <section className="homeTiles" aria-label="Homepage dashboard">
                 <Link className="homeTile aboutTile" to="/about">
                     <div className="tileBaseContent aboutBase">
-                        <p className="tileKicker">About Arwaad Rahman</p>
-
-                        <h1>Arwaad Rahman</h1>
-
-                        <p>
-                            Find out more about me, what I’m building, and what I’m currently
-                            into.
-                        </p>
+                        <div>
+                            <p className="tileKicker">About</p>
+                            <h1>Arwaad Rahman</h1>
+                            <p className="tileFooterText">More about me</p>
+                        </div>
                     </div>
 
                     <div className="rotationPanel">
                         <p className="tileKicker">Current Rotation</p>
 
-                        <div className="rotationStack">
+                        <div className="rotationGrid">
                             {currentRotation.map((item) => (
                                 <div className="rotationItem" key={item.label}>
                                     <span>{item.label}</span>
