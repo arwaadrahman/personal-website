@@ -4,32 +4,31 @@ import { currentRotation } from "../data/currentRotation";
 function HomeDashboard() {
     return (
         <main className="homePage">
-            <section className="heroStrip">
-                <p className="eyebrow">UW Student Portfolio</p>
-                <h1>Arwaad Rahman</h1>
-                <p>
-                    Building projects across technology, public policy, data, and
-                    interactive systems.
-                </p>
-            </section>
+            <div className="backgroundFX" aria-hidden="true">
+                <span className="burst burstOne" />
+                <span className="burst burstTwo" />
+                <span className="burst burstThree" />
+                <span className="ribbon ribbonOne" />
+                <span className="ribbon ribbonTwo" />
+            </div>
 
             <section className="homeTiles" aria-label="Homepage dashboard">
                 <Link className="homeTile aboutTile" to="/about">
-                    <div className="tileAccent cyanAccent" />
+                    <div className="tileBaseContent aboutBase">
+                        <p className="tileKicker">About Arwaad Rahman</p>
 
-                    <div className="tileBaseContent">
-                        <p className="tileKicker">About</p>
-                        <h2>Student portfolio</h2>
+                        <h1>Arwaad Rahman</h1>
+
                         <p>
-                            A growing technical portfolio shaped by coursework, project-based
-                            learning, and curiosity across software, policy, and data.
+                            Find out more about me, what I’m building, and what I’m currently
+                            into.
                         </p>
                     </div>
 
                     <div className="rotationPanel">
                         <p className="tileKicker">Current Rotation</p>
 
-                        <div className="rotationGrid">
+                        <div className="rotationStack">
                             {currentRotation.map((item) => (
                                 <div className="rotationItem" key={item.label}>
                                     <span>{item.label}</span>
@@ -38,16 +37,18 @@ function HomeDashboard() {
                             ))}
                         </div>
                     </div>
+
+                    <div className="tileStripe aboutStripe" />
                 </Link>
 
                 <Link className="homeTile highlightTile" to="/projects/policy-analysis">
-                    <div className="tileAccent magentaAccent" />
-
                     <div className="highlightLabel">Featured Highlight</div>
 
-                    <div className="tileBaseContent">
+                    <div className="tileBaseContent highlightContent">
                         <p className="tileKicker">Project</p>
+
                         <h2>Policy Analysis</h2>
+
                         <p>
                             A public policy analysis project using data, visualization, and
                             eventually machine learning to explore civic questions.
@@ -61,7 +62,8 @@ function HomeDashboard() {
                         </div>
                     </div>
 
-                    <div className="tileCTA">Open project</div>
+                    <div className="tileCTA">See more</div>
+                    <div className="tileStripe highlightStripe" />
                 </Link>
             </section>
         </main>

@@ -1,34 +1,18 @@
 export const currentRotation = [
     {
-        label: "Reading",
+        label: "On the shelf",
         value: "The Odyssey",
     },
     {
-        label: "Listening",
+        label: "In the headphones",
         value: "Study playlists",
     },
     {
-        label: "Watching",
+        label: "On screen",
         value: "To be updated",
     },
     {
         label: "Playing",
         value: "To be updated",
-    },
-    {
-        label: "Learning",
-        value: "React, GitHub, and web design",
-    },
-    {
-        label: "Building",
-        value: "Personal portfolio website",
-    },
-    {
-        label: "Taking",
-        value: "UW coursework",
-    },
-    {
-        label: "Hyperfixating on",
-        value: "Portfolio UI and project ideas",
     },
 ];

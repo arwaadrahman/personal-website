@@ -1,22 +1,38 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
-function Header() {
+function Header({ theme, onThemeToggle, onContactOpen }) {
+    const [isProjectsOpen, setIsProjectsOpen] = useState(false);
+
     return (
         <header className="header">
-            <Link className="logo" to="/" aria-label="Home">
-                AR
+            <Link className="namePlate" to="/about">
+                Arwaad Rahman
             </Link>
 
             <nav className="mainNav" aria-label="Main navigation">
                 <Link to="/">Home</Link>
 
-                <div className="navDropdown">
-                    <button type="button">Projects ▾</button>
+                <div
+                    className={`navDropdown ${isProjectsOpen ? "open" : ""}`}
+                    onMouseEnter={() => setIsProjectsOpen(true)}
+                    onMouseLeave={() => setIsProjectsOpen(false)}
+                >
+                    <button
+                        type="button"
+                        onClick={() => setIsProjectsOpen((current) => !current)}
+                    >
+                        Projects ▾
+                    </button>
 
                     <div className="dropdownMenu">
                         {projects.map((project) => (
-                            <Link key={project.slug} to={`/projects/${project.slug}`}>
+                            <Link
+                                key={project.slug}
+                                to={`/projects/${project.slug}`}
+                                onClick={() => setIsProjectsOpen(false)}
+                            >
                                 {project.shortTitle}
                             </Link>
                         ))}
@@ -24,36 +40,16 @@ function Header() {
                 </div>
 
                 <Link to="/coursework">Coursework</Link>
-                <Link to="/about">About</Link>
             </nav>
 
             <div className="navActions">
-                <a
-                    className="actionButton githubButton"
-                    href="https://github.com/arwaadrahman"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    GitHub
-                </a>
+                <button className="actionButton modeButton" type="button" onClick={onThemeToggle}>
+                    {theme === "light" ? "Dark" : "Light"}
+                </button>
 
-                <a
-                    className="actionButton linkedinButton"
-                    href="https://www.linkedin.com/in/arwaad/"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    LinkedIn
-                </a>
-
-                <a
-                    className="actionButton resumeButton"
-                    href="/Arwaad_Rahman_Resume.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Resume
-                </a>
+                <button className="actionButton connectButton" type="button" onClick={onContactOpen}>
+                    Connect
+                </button>
             </div>
         </header>
     );
