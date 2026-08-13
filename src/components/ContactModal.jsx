@@ -20,9 +20,7 @@ function ContactModal({ isOpen, onClose }) {
 
                 <a
                     className="emailBlock"
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=arwaadar@gmail.com"
-                    target="_blank"
-                    rel="noreferrer"
+                    href="mailto:arwaadar@gmail.com"
                 >
                     <span>Email</span>
                     <strong>arwaadar@gmail.com</strong>
