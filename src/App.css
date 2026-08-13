@@ -115,6 +115,15 @@ a {
   border-radius: 12px;
   background: var(--cream-light);
   box-shadow: 10px 10px 0 var(--shadow);
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.header.headerHidden {
+  transform: translate(-50%, -145%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .themeDark .header {
@@ -143,6 +152,23 @@ a {
   border-color: var(--ink);
 }
 
+.mobileHomeButton,
+.mobileMenuButton,
+.mobileConnectNavButton {
+  display: none;
+}
+
+.mobileMenuButton {
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font-weight: 950;
+  cursor: pointer;
+}
+
 .mainNav {
   display: flex;
   justify-content: center;
@@ -157,21 +183,38 @@ a {
 .mainNav a,
 .navDropdown button {
   min-height: 42px;
-  padding: 11px 13px;
-  border: 2px solid transparent;
+  padding: 10px 14px;
+  border: 2px solid #151722;
+  border-radius: 999px;
   background: transparent;
   color: inherit;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  font-weight: 900;
+  font-weight: 950;
   cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.themeDark .mainNav a,
+.themeDark .navDropdown button {
+  border-color: #f0e6d6;
 }
 
 .mainNav a:hover,
 .navDropdown button:hover {
+  transform: translateY(-2px);
   background: var(--cyan);
-  border-color: currentColor;
+  border-color: #151722;
   color: #f0e6d6;
+}
+
+.themeDark .mainNav a:hover,
+.themeDark .navDropdown button:hover {
+  border-color: #f0e6d6;
 }
 
 .navActions {
@@ -492,7 +535,7 @@ a {
   position: relative;
   z-index: 2;
   min-height: 100vh;
-  padding: 124px 5vw 64px;
+  padding: 126px 5vw 48px;
   display: flex;
   align-items: flex-start;
 }
@@ -500,14 +543,51 @@ a {
 .homeTiles {
   position: relative;
   z-index: 3;
-  width: min(1240px, 100%);
-  height: min(650px, calc(100vh - 165px));
+  width: min(1500px, 92vw);
+  height: clamp(560px, calc(100vh - 178px), 860px);
   min-height: 520px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: clamp(20px, 2vw, 32px);
   transition: grid-template-columns 0.34s ease;
+}
+
+@media (min-width: 1500px) {
+  .header {
+    top: 18px;
+    width: min(1500px, 90vw);
+    min-height: 82px;
+    padding: 12px 22px;
+  }
+
+  .homePage {
+    padding-top: 132px;
+    padding-bottom: 44px;
+  }
+
+  .homeTiles {
+    width: min(1640px, 90vw);
+    height: clamp(660px, calc(100vh - 190px), 940px);
+    gap: 28px;
+  }
+
+  .aboutMainLink h1,
+  .tileBaseContent h2 {
+    font-size: clamp(5rem, 6.2vw, 8.6rem);
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .homePage {
+    padding-top: 118px;
+    padding-bottom: 36px;
+  }
+
+  .homeTiles {
+    width: min(1040px, 92vw);
+    height: clamp(520px, calc(100vh - 160px), 680px);
+  }
 }
 
 .homeTiles:has(.aboutTile:hover) {
@@ -715,12 +795,6 @@ a {
   color: #ffffff;
 }
 
-.tileFooterText {
-  margin-top: 12px;
-  font-size: 1.04rem;
-  font-weight: 800;
-}
-
 .rotationPanel {
   position: absolute;
   left: 34px;
@@ -864,6 +938,10 @@ a {
   border-color: #f0e6d6;
 }
 
+.highlightTile:hover .projectMiniStatus.statusInProgressLabel {
+  border-color: #f0e6d6;
+}
+
 .statusPlannedLabel {
   background:
     linear-gradient(90deg, rgba(38, 168, 156, 0.18) 1px, transparent 1px),
@@ -900,10 +978,6 @@ a {
 
 .highlightTile:hover .highlightReveal p {
   color: #ffffff;
-}
-
-.highlightTile:hover .projectMiniStatus.statusInProgressLabel {
-  border-color: #f0e6d6;
 }
 
 .tagRow {
@@ -1264,6 +1338,10 @@ a {
   border-top: 2px solid rgba(21, 23, 34, 0.2);
 }
 
+.firstAboutSection {
+  margin-top: 34px;
+}
+
 .themeDark .pageSection {
   border-top-color: rgba(240, 230, 214, 0.24);
 }
@@ -1294,6 +1372,10 @@ a {
 }
 
 /* Coursework */
+
+.courseworkHero h1 {
+  font-size: clamp(3.2rem, 6vw, 5.4rem);
+}
 
 .courseworkGrid {
   max-width: 1120px;
@@ -1441,16 +1523,21 @@ a {
   min-height: 330px;
   border: 2px solid currentColor;
   border-radius: 14px;
-  display: grid;
-  place-items: center;
+  overflow: hidden;
   background:
     radial-gradient(circle at 30% 30%, rgba(38, 168, 156, 0.6), transparent 34%),
     radial-gradient(circle at 70% 65%, rgba(159, 40, 88, 0.6), transparent 38%),
     #171c2a;
-  color: #f0e6d6;
-  font-weight: 950;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+}
+
+.profilePhotoSlot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 56% 22%;
+  display: block;
+  transform: scale(1.1);
+  transform-origin: center center;
 }
 
 .aboutIntro {
@@ -1543,29 +1630,107 @@ a {
   color: #f0e6d6;
 }
 
-.coverFrame {
+.coverFrame,
+.statusCoverFrame {
+  position: relative;
   aspect-ratio: 1 / 1;
   border-radius: 10px;
   overflow: hidden;
   display: grid;
   place-items: center;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(38, 168, 156, 0.75), transparent 32%),
-    radial-gradient(circle at 70% 60%, rgba(159, 40, 88, 0.75), transparent 36%),
-    #171c2a;
-  color: #f0e6d6;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: transparent;
 }
 
 .coverFrame img {
-  width: 100%;
-  height: 100%;
+  width: 86%;
+  height: 86%;
   object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  transition:
+    width 0.22s ease,
+    height 0.22s ease,
+    transform 0.22s ease,
+    border-radius 0.22s ease;
 }
 
-.aboutRotationCard span {
+.aboutRotationCard:hover .coverFrame img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.statusCoverFrame {
+  border: 2px solid currentColor;
+  background: #fff8eb;
+  display: grid;
+  place-items: center;
+}
+
+.themeDark .statusCoverFrame {
+  background: #0b0e17;
+}
+
+.rotationStatusPill {
+  width: 86%;
+  min-height: clamp(82px, 8vw, 120px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 18px;
+  border: 3px solid #151722;
+  border-radius: 12px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)),
+    repeating-linear-gradient(135deg,
+      #ffd451 0 22px,
+      #151722 22px 34px);
+  color: #ffffff;
+  font-size: clamp(1.15rem, 2.6vw, 1.9rem);
+  font-weight: 950;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow:
+    -1px -1px 0 #151722,
+    1px -1px 0 #151722,
+    -1px 1px 0 #151722,
+    1px 1px 0 #151722;
+  transition:
+    transform 0.22s ease,
+    border-color 0.18s ease;
+}
+
+.themeDark .rotationStatusPill {
+  color: #ffffff;
+  border-color: #f0e6d6;
+}
+
+.aboutRotationCard:hover .rotationStatusPill {
+  transform: scale(1.06);
+  color: #ffffff;
+  border-color: #f0e6d6;
+}
+
+.themeDark .rotationStatusPill {
+  color: #ffffff;
+  border-color: #f0e6d6;
+}
+
+.aboutRotationCard:hover .rotationStatusPill {
+  transform: scale(1.06);
+  color: #ffffff;
+  border-color: #f0e6d6;
+}
+
+/* Keeps the in-progress text white even though general card spans are pink */
+.aboutRotationCard .rotationStatusPill,
+.aboutRotationCard:hover .rotationStatusPill {
+  color: #ffffff;
+}
+
+.aboutRotationCard>div:last-child span {
   display: block;
   color: var(--pink);
   font-size: 0.72rem;
@@ -1581,13 +1746,9 @@ a {
   line-height: 1.25;
 }
 
-.aboutRotationCard:hover span,
+.aboutRotationCard:hover>div:last-child span,
 .aboutRotationCard:hover strong {
   color: #f0e6d6;
-}
-
-.courseworkHero h1 {
-  font-size: clamp(3.2rem, 6vw, 5.4rem);
 }
 
 /* Cursor */
@@ -1626,7 +1787,7 @@ a {
   background: rgba(38, 168, 156, 0.16);
 }
 
-/* Responsive */
+/* Tablet */
 
 @media (max-width: 1080px) {
   .header {
@@ -1690,7 +1851,9 @@ a {
   }
 }
 
-@media (max-width: 720px) {
+/* Mobile + tablet portrait */
+
+@media (max-width: 900px) {
 
   .cursorDot,
   .cursorRing {
@@ -1698,55 +1861,512 @@ a {
   }
 
   .header {
-    top: 12px;
-    width: calc(100% - 24px);
+    position: sticky;
+    top: 10px;
+    left: auto;
+    transform: none;
+    z-index: 90;
+    width: calc(100% - 20px);
+    margin: 10px auto 0;
+    min-height: 58px;
     padding: 10px;
-    gap: 10px;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 8px;
   }
 
-  .mainNav,
+  .header.headerHidden {
+    transform: translateY(-140%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .namePlate {
+    justify-self: start;
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 0.78rem;
+  }
+
+  .mobileHomeButton {
+    display: inline-flex;
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 2px solid #151722;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font-size: 0.76rem;
+    font-weight: 950;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .themeDark .mobileHomeButton {
+    border-color: #f0e6d6;
+  }
+
   .navActions {
-    flex-wrap: wrap;
+    grid-column: 3;
+    justify-self: end;
     gap: 6px;
+  }
+
+  .connectButton {
+    display: none;
+  }
+
+  .modeButton {
+    min-width: 40px;
+    min-height: 38px;
+    padding: 8px;
+  }
+
+  .modeButton:hover,
+  .modeButton:active,
+  .modeButton:focus {
+    background: transparent;
+    color: inherit;
+  }
+
+  .mobileMenuButton {
+    display: inline-flex;
+    grid-column: 4;
+    justify-content: center;
+    align-items: center;
+    min-height: 38px;
+    padding: 8px 10px;
     font-size: 0.72rem;
+  }
+
+  .mainNav {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .mainNav.mobileOpen {
+    display: grid;
+  }
+
+  .mainNav>a:first-child {
+    display: none;
   }
 
   .mainNav a,
   .navDropdown button,
-  .actionButton {
-    min-height: 36px;
-    padding: 8px 9px;
+  .mobileConnectNavButton {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    min-height: 40px;
+    padding: 9px 12px;
+    font-size: 0.76rem;
+    border: 2px solid #151722;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+  }
+
+  .mobileConnectNavButton {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .themeDark .mainNav a,
+  .themeDark .navDropdown button,
+  .themeDark .mobileConnectNavButton {
+    border-color: #f0e6d6;
+  }
+
+  .mobileConnectNavButton:hover {
+    background: var(--pink);
+    color: #f0e6d6;
+  }
+
+  .navDropdown::after {
+    display: none;
+  }
+
+  .navDropdown {
+    width: 100%;
+  }
+
+  .dropdownMenu {
+    position: static;
+    min-width: 0;
+    width: 100%;
+    margin-top: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .navDropdown.open .dropdownMenu {
+    display: grid;
+    gap: 8px;
+  }
+
+  .dropdownMenu a {
+    width: 88%;
+    min-height: 32px;
+    margin: 0 auto;
+    padding: 7px 10px;
+    border: 2px solid #151722;
+    border-radius: 999px;
+    background: transparent;
+    text-align: center;
+    font-size: 0.66rem;
+    opacity: 0.88;
+  }
+
+  .themeDark .dropdownMenu a {
+    border-color: #f0e6d6;
   }
 
   .homePage {
-    padding: 210px 16px 42px;
+    padding: 14px 14px 32px;
   }
 
-  .tileBaseContent,
-  .pagePanel,
-  .projectPageInner,
-  .courseworkCard,
-  .contactModal {
-    padding: 24px;
+  .contentPage {
+    padding: 22px 14px 42px;
+  }
+
+  .homeTiles {
+    gap: 14px;
+  }
+
+  .homeTile {
+    min-height: auto;
+  }
+
+  /* Mobile About tile: inactive/simple, but still keeps About + In rotation */
+  .aboutTile,
+  .aboutTile:hover {
+    background: var(--cream-light);
+    color: var(--ink);
+    transform: none;
+  }
+
+  .aboutTile::before,
+  .aboutTile:hover::before {
+    background:
+      linear-gradient(118deg, transparent 0%, transparent 42%, rgba(38, 168, 156, 0.2) 42.2%, transparent 45%),
+      linear-gradient(104deg, transparent 0%, transparent 74%, rgba(159, 40, 88, 0.18) 74.2%, transparent 76%),
+      radial-gradient(circle at 70% 72%, rgba(89, 67, 184, 0.08), transparent 24%);
+  }
+
+  .rotationPanel {
+    display: none;
+  }
+
+  .aboutMiniLabel {
+    display: block;
+    top: 18px;
+    right: 18px;
+    background: #26a89c;
+    color: #f0e6d6;
+    border-color: #151722;
+    font-size: 0.62rem;
+    padding: 8px 10px;
+  }
+
+  .themeDark .aboutMiniLabel {
+    border-color: #f0e6d6;
+  }
+
+  .aboutMainLink {
+    position: relative;
+    min-height: 340px;
+    padding: 22px;
+    justify-content: flex-end;
+  }
+
+  .aboutTile .aboutIdentity,
+  .aboutTile:hover .aboutIdentity {
+    transform: none;
+  }
+
+  .aboutTile .tileKicker {
+    display: block;
+  }
+
+  .aboutTile:hover .tileKicker {
+    color: var(--purple);
+  }
+
+  .aboutTile:hover .aboutMainLink p {
+    color: var(--muted);
   }
 
   .aboutMainLink h1,
   .tileBaseContent h2,
   .pagePanel h1,
-  .projectPageInner h1 {
-    font-size: clamp(3.3rem, 15vw, 5rem);
+  .projectPageInner h1,
+  .aboutIntro h1 {
+    font-size: clamp(2.8rem, 13vw, 4.4rem);
   }
 
-  .rotationGrid,
-  .courseworkGrid,
-  .aboutSectionGrid,
-  .snapshotGrid,
-  .aboutRotationGrid,
+  .highlightTile {
+    min-height: 340px;
+  }
+
+  .highlightLabel {
+    top: 18px;
+    right: 18px;
+    left: auto;
+    font-size: 0.62rem;
+    padding: 8px 10px;
+  }
+
+  .projectMiniStatus {
+    top: 18px;
+    left: 18px;
+    font-size: 0.62rem;
+    padding: 8px 10px;
+  }
+
+  .highlightContent {
+    padding: 22px;
+    padding-top: 88px;
+  }
+
+  .highlightReveal,
+  .highlightTile:hover .highlightReveal {
+    display: none;
+  }
+
+  .tileCTA,
+  .highlightTile:hover .tileCTA {
+    display: none;
+  }
+
+  .tileBaseContent p,
+  .aboutMainLink p,
+  .pageLead,
+  .pagePanel p,
+  .projectPageInner p,
+  .courseworkCard p {
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  .pagePanel,
+  .projectPageInner,
+  .contactModal {
+    padding: 20px;
+  }
+
+  .aboutProfileLayout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .profilePhotoSlot {
+    min-height: 250px;
+  }
+
+  .firstAboutSection {
+    margin-top: 30px;
+  }
+
+  .aboutSnapshotGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .aboutSnapshotGrid div {
+    padding: 16px;
+  }
+
+  .aboutRotationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .aboutRotationCard:nth-child(1) {
+    order: 1;
+  }
+
+  .aboutRotationCard:nth-child(2) {
+    order: 2;
+  }
+
+  .aboutRotationCard:nth-child(3) {
+    order: 5;
+  }
+
+  .aboutRotationCard:nth-child(4) {
+    order: 3;
+  }
+
+  .aboutRotationCard:nth-child(5) {
+    order: 4;
+  }
+
+  .aboutRotationCard:nth-child(6) {
+    order: 6;
+  }
+
+  .aboutRotationCard {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .aboutRotationCard span {
+    font-size: 0.57rem;
+  }
+
+  .aboutRotationCard strong {
+    font-size: 0.78rem;
+    line-height: 1.18;
+  }
+
+  .aboutRotationCard .rotationStatusPill {
+    width: 88%;
+    min-height: 76px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border-width: 3px;
+    border-radius: 10px;
+  }
+
+  .coverFrame img {
+    width: 82%;
+    height: 82%;
+  }
+
+  /* Mobile coursework: two compact sections per row */
+  .courseworkGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .courseworkCard {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .courseworkCard h2 {
+    font-size: clamp(1.05rem, 5vw, 1.5rem);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .courseworkCard>p {
+    display: none;
+  }
+
+  .courseList {
+    gap: 6px;
+    margin: 10px 0 0;
+  }
+
+  .coursePill {
+    padding: 7px;
+    border-radius: 7px;
+    gap: 2px;
+  }
+
+  .coursePill strong {
+    font-size: 0.62rem;
+  }
+
+  .coursePill span {
+    font-size: 0.68rem;
+    line-height: 1.18;
+  }
+
+  .coursePill em {
+    font-size: 0.6rem;
+  }
+
+  .relatedList {
+    display: none;
+  }
+
+  /* Mobile modal buttons: active colors always */
   .modalLinks {
     grid-template-columns: 1fr;
   }
 
-  .homeTile {
-    min-height: 720px;
+  .githubModal {
+    background: #151722;
+    color: #f5efe3;
   }
+
+  .themeDark .githubModal {
+    background: #f0e6d6;
+    color: #151722;
+  }
+
+  .linkedinModal {
+    background: #0a66c2;
+    color: #ffffff;
+  }
+
+  .resumeModal {
+    background: var(--pink);
+    color: #f0e6d6;
+    border-color: #151722;
+  }
+
+  .themeDark .resumeModal {
+    background: var(--pink);
+    color: #f0e6d6;
+    border-color: #f0e6d6;
+  }
+
+  /* Final centering fix for Current Rotation in-progress stickers */
+
+  .statusCoverFrame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .aboutRotationCard .rotationStatusPill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: #ffffff;
+    line-height: 0.95;
+    text-align: center;
+  }
+
+  .aboutRotationCard:hover .rotationStatusPill {
+    color: #ffffff;
+  }
+
+  @media (max-width: 900px) {
+    .statusCoverFrame {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aboutRotationCard .rotationStatusPill {
+      margin: 0;
+      line-height: 0.95;
+    }
+  }
+
 }

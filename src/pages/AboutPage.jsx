@@ -6,7 +6,7 @@ function AboutPage() {
             <section className="pagePanel aboutPagePanel">
                 <div className="aboutProfileLayout">
                     <div className="profilePhotoSlot">
-                        <span>Photo</span>
+                        <img src="/about/arwaad-profile.jpg" alt="Arwaad Rahman" />
                     </div>
 
                     <div className="aboutIntro">
@@ -23,6 +23,42 @@ function AboutPage() {
                     </div>
                 </div>
 
+                <div className="pageSection firstAboutSection">
+                    <h2>Current rotation</h2>
+
+                    <p>
+                        A rotating snapshot of what I am reading, listening to, watching,
+                        playing, building, and thinking about.
+                    </p>
+
+                    <div className="aboutRotationGrid">
+                        {currentRotation.map((item) => (
+                            <a
+                                className="aboutRotationCard"
+                                key={item.label}
+                                href={item.href}
+                                target={item.href.startsWith("http") ? "_blank" : undefined}
+                                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                            >
+                                {item.coverStyle === "status" ? (
+                                    <div className="statusCoverFrame">
+                                        <span className="rotationStatusPill">{item.coverLabel}</span>
+                                    </div>
+                                ) : (
+                                    <div className="coverFrame">
+                                        <img src={item.cover} alt={`${item.value} cover`} />
+                                    </div>
+                                )}
+
+                                <div>
+                                    <span>{item.label}</span>
+                                    <strong>{item.value}</strong>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
                 <div className="aboutSnapshotGrid">
                     <div>
                         <span>Academic direction</span>
@@ -35,7 +71,7 @@ function AboutPage() {
 
                     <div>
                         <span>Career interests</span>
-                        <strong>Data, ML, and Policy Tech</strong>
+                        <strong>Data, ML, and policy technology</strong>
                         <p>
                             I am aiming toward data analyst, data scientist, machine learning,
                             and public policy technology roles.
@@ -58,40 +94,6 @@ function AboutPage() {
                             I am strengthening the technical base I need for analytics,
                             machine learning, web development, and project-based work.
                         </p>
-                    </div>
-                </div>
-
-                <div className="pageSection">
-                    <h2>Current rotation</h2>
-
-                    <p>
-                        A rotating snapshot of what I am reading, listening to, watching,
-                        playing, building, and thinking about.
-                    </p>
-
-                    <div className="aboutRotationGrid">
-                        {currentRotation.map((item) => (
-                            <a
-                                className="aboutRotationCard"
-                                key={item.label}
-                                href={item.href}
-                                target={item.href.startsWith("http") ? "_blank" : undefined}
-                                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                            >
-                                <div className="coverFrame">
-                                    {item.cover ? (
-                                        <img src={item.cover} alt={`${item.value} cover`} />
-                                    ) : (
-                                        <span>{item.coverLabel}</span>
-                                    )}
-                                </div>
-
-                                <div>
-                                    <span>{item.label}</span>
-                                    <strong>{item.value}</strong>
-                                </div>
-                            </a>
-                        ))}
                     </div>
                 </div>
 

@@ -18,7 +18,12 @@ function ContactModal({ isOpen, onClose }) {
 
                 <p className="eyebrow">Connect</p>
 
-                <a className="emailBlock" href="mailto:arwaadar@gmail.com">
+                <a
+                    className="emailBlock"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=arwaadar@gmail.com"
+                    target="_blank"
+                    rel="noreferrer"
+                >
                     <span>Email</span>
                     <strong>arwaadar@gmail.com</strong>
                 </a>
