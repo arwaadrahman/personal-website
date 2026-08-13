@@ -2369,4 +2369,83 @@ a {
     }
   }
 
+  /* Mobile/tablet About tile touch-hover behavior */
+
+  @media (max-width: 900px) {
+
+    .aboutTile:hover,
+    .aboutTile:active {
+      background: var(--cyan);
+      color: #f0e6d6;
+      transform: none;
+    }
+
+    .aboutTile:hover::before,
+    .aboutTile:active::before {
+      background:
+        linear-gradient(118deg, transparent 0%, transparent 42%, rgba(240, 230, 214, 0.34) 42.2%, transparent 45%),
+        linear-gradient(104deg, transparent 0%, transparent 74%, rgba(159, 40, 88, 0.5) 74.2%, transparent 76%),
+        radial-gradient(circle at 72% 72%, rgba(159, 40, 88, 0.32), transparent 24%);
+    }
+
+    .aboutTile:hover .aboutMiniLabel,
+    .aboutTile:active .aboutMiniLabel {
+      background: var(--pink);
+      color: #f0e6d6;
+      border-color: #f0e6d6;
+    }
+
+    .aboutTile:hover .aboutIdentity,
+    .aboutTile:active .aboutIdentity {
+      transform: translateY(-48px);
+    }
+
+    .aboutTile:hover .tileKicker,
+    .aboutTile:active .tileKicker {
+      color: #f0e6d6;
+    }
+
+    .aboutTile:hover .rotationPanel,
+    .aboutTile:active .rotationPanel {
+      display: block;
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      z-index: 4;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .aboutTile:hover .rotationGrid,
+    .aboutTile:active .rotationGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .aboutTile:hover .rotationButton,
+    .aboutTile:active .rotationButton {
+      min-height: 56px;
+      padding: 8px;
+      border: 2px solid #f0e6d6;
+      border-radius: 10px;
+      background: rgba(240, 230, 214, 0.12);
+      color: #f0e6d6;
+    }
+
+    .aboutTile:hover .rotationButton span,
+    .aboutTile:active .rotationButton span {
+      color: #f0e6d6;
+      font-size: 0.52rem;
+    }
+
+    .aboutTile:hover .rotationButton strong,
+    .aboutTile:active .rotationButton strong {
+      color: #f0e6d6;
+      font-size: 0.68rem;
+      line-height: 1.15;
+    }
+  }
+
 }
