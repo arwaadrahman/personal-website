@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import HomeDashboard from "./components/HomeDashboard";
@@ -39,6 +40,8 @@ function App() {
           isOpen={isContactOpen}
           onClose={() => setIsContactOpen(false)}
         />
+
+        <Analytics />
       </div>
     </BrowserRouter>
   );
