@@ -33,11 +33,10 @@ function HomeDashboard() {
                         <div className="aboutIdentity">
                             <p className="tileKicker">About</p>
                             <h1>Arwaad Rahman</h1>
-                            <p className="tileFooterText">More about me</p>
                         </div>
                     </Link>
 
-                    <div className="aboutMiniLabel">Now playing</div>
+                    <div className="aboutMiniLabel">In rotation</div>
 
                     <div className="rotationPanel">
                         <p className="tileKicker">Current Rotation</p>
@@ -70,16 +69,18 @@ function HomeDashboard() {
 
                         <h2>Policy Analysis</h2>
 
-                        <p>
-                            A public policy analysis project using data, visualization, and
-                            eventually machine learning to explore civic questions.
-                        </p>
+                        <div className="highlightReveal">
+                            <p>
+                                A public policy analysis project using data, visualization, and
+                                eventually machine learning to explore civic questions.
+                            </p>
 
-                        <div className="tagRow">
-                            <span>Python</span>
-                            <span>Data</span>
-                            <span>Policy</span>
-                            <span>Visualization</span>
+                            <div className="tagRow">
+                                <span>Python</span>
+                                <span>Data</span>
+                                <span>Policy</span>
+                                <span>Visualization</span>
+                            </div>
                         </div>
                     </div>
 

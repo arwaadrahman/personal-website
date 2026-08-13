@@ -3,14 +3,14 @@ import { coursework } from "../data/coursework";
 function CourseworkPage() {
     return (
         <main className="contentPage">
-            <section className="pagePanel">
+            <section className="pagePanel courseworkHero">
                 <p className="eyebrow">Coursework</p>
 
-                <h1>Coursework and technical growth</h1>
+                <h1>Coursework</h1>
 
                 <p className="pageLead">
-                    Coursework connected to computer science, informatics, mathematics,
-                    public policy, and project-based learning.
+                    Courses and academic areas connected to computer science, informatics,
+                    mathematics, public policy, writing, and project-based learning.
                 </p>
             </section>
 
@@ -34,13 +34,15 @@ function CourseworkPage() {
                             ))}
                         </div>
 
-                        <div className="relatedList">
-                            <strong>Related projects</strong>
+                        {item.relatedProjects.length > 0 && (
+                            <div className="relatedList">
+                                <strong>Related projects</strong>
 
-                            {item.relatedProjects.map((project) => (
-                                <span key={project}>{project}</span>
-                            ))}
-                        </div>
+                                {item.relatedProjects.map((project) => (
+                                    <span key={project}>{project}</span>
+                                ))}
+                            </div>
+                        )}
                     </article>
                 ))}
             </section>

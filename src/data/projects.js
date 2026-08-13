@@ -39,12 +39,12 @@ export const projects = [
         slug: "history-timeline",
         title: "History Timeline Website",
         shortTitle: "History Timeline",
-        status: "Planned",
-        statusType: "planned",
+        status: "In progress",
+        statusType: "in-progress",
         description:
             "A visual timeline project connecting coursework, historical events, and interactive storytelling.",
         details:
-            "This project will turn history or humanities coursework into an interactive timeline. It will help me practice front-end layout, structured information, research presentation, and visual storytelling.",
-        tools: ["React", "Coursework", "Timeline", "Storytelling"],
+            "This project turns history and humanities interests into an interactive website. It is focused on front-end layout, structured information, research presentation, and visual storytelling.",
+        tools: ["React", "Coursework", "Timeline", "Storytelling", "UI"],
     },
 ];

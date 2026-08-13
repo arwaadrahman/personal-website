@@ -18,15 +18,9 @@ function ContactModal({ isOpen, onClose }) {
 
                 <p className="eyebrow">Connect</p>
 
-                <h2>Contact Arwaad</h2>
-
-                <p className="modalNote">
-                    I am currently building projects across technology, public policy,
-                    data, and interactive systems. The best way to reach me is by email.
-                </p>
-
                 <a className="emailBlock" href="mailto:arwaadar@gmail.com">
-                    arwaadar@gmail.com
+                    <span>Email</span>
+                    <strong>arwaadar@gmail.com</strong>
                 </a>
 
                 <div className="modalLinks">
