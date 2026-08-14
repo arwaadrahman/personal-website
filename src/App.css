@@ -243,18 +243,19 @@ a {
 .modeButton {
   min-width: 52px;
   font-size: 1.05rem;
+  line-height: 1;
 }
 
+/* Keep the old hover look */
 .modeButton:hover {
   background: var(--cyan);
   color: #f0e6d6;
 }
 
-.themeIcon {
-  width: 18px;
-  height: 18px;
-  display: block;
-  flex-shrink: 0;
+/* New toggle rule: selected when dark mode is on */
+.modeButtonActive {
+  background: var(--cyan);
+  color: #f0e6d6;
 }
 
 .connectButton:hover {
@@ -1929,13 +1930,27 @@ a {
     min-width: 40px;
     min-height: 38px;
     padding: 8px;
+    font-size: 1.05rem;
+    line-height: 1;
   }
 
+  /* Prevent the mobile tap/hover from staying weirdly highlighted */
   .modeButton:hover,
   .modeButton:active,
   .modeButton:focus {
     background: transparent;
     color: inherit;
+  }
+
+  /* But keep it selected when dark mode is actually on */
+  .modeButton.modeButtonActive {
+    background: var(--cyan);
+    color: #f0e6d6;
+  }
+
+  .modeButton.modeButtonActive {
+    background: var(--cyan);
+    color: #f0e6d6;
   }
 
   .mobileMenuButton {

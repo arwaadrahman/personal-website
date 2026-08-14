@@ -2,51 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
-function MoonIcon() {
-    return (
-        <svg
-            className="themeIcon"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
-            <path
-                d="M21 14.7A8.2 8.2 0 0 1 9.3 3a7.2 7.2 0 1 0 11.7 11.7Z"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
-function SunIcon() {
-    return (
-        <svg
-            className="themeIcon"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
-            <circle
-                cx="12"
-                cy="12"
-                r="4.2"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.4"
-            />
-            <path
-                d="M12 2.5v3M12 18.5v3M4.8 4.8l2.1 2.1M17.1 17.1l2.1 2.1M2.5 12h3M18.5 12h3M4.8 19.2l2.1-2.1M17.1 6.9l2.1-2.1"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-            />
-        </svg>
-    );
-}
-
 function Header({ theme, onThemeToggle, onContactOpen }) {
     const [isProjectsOpen, setIsProjectsOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -154,12 +109,12 @@ function Header({ theme, onThemeToggle, onContactOpen }) {
 
             <div className="navActions">
                 <button
-                    className="modeButton"
+                    className={`actionButton modeButton ${theme === "dark" ? "modeButtonActive" : ""}`}
                     type="button"
                     onClick={onThemeToggle}
                     aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
                 >
-                    {theme === "light" ? <MoonIcon /> : <SunIcon />}
+                    ☾
                 </button>
 
                 <button className="actionButton connectButton" type="button" onClick={onContactOpen}>
