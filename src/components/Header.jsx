@@ -76,12 +76,14 @@ function Header({ theme, onThemeToggle, onContactOpen }) {
                 >
                     <button
                         type="button"
+                        aria-expanded={isProjectsOpen}
+                        aria-controls="project-navigation-menu"
                         onClick={() => setIsProjectsOpen((current) => !current)}
                     >
                         Projects ▾
                     </button>
 
-                    <div className="dropdownMenu">
+                    <div className="dropdownMenu" id="project-navigation-menu">
                         {projects.map((project) => (
                             <Link
                                 key={project.slug}
@@ -125,7 +127,7 @@ function Header({ theme, onThemeToggle, onContactOpen }) {
             <button
                 className="mobileMenuButton"
                 type="button"
-                aria-label="Open navigation menu"
+                aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={isMobileMenuOpen}
                 onClick={() => setIsMobileMenuOpen((current) => !current)}
             >
