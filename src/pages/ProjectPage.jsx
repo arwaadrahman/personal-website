@@ -26,6 +26,14 @@ function ProjectPage() {
     const labelStatusClass =
         project.statusType === "in-progress" ? "statusInProgressLabel" : "statusPlannedLabel";
 
+    const directionHeading =
+        project.statusType === "in-progress" ? "What I am working on" : "Planned direction";
+
+    const directionCopy =
+        project.statusType === "in-progress"
+            ? "This project is actively being developed. As the work becomes more complete, I will add concrete results, screenshots, implementation decisions, and a short reflection on what I learned."
+            : "This is a project I intend to develop as I build the relevant technical skills. It is listed here as planned work rather than as a completed portfolio piece.";
+
     return (
         <main className="contentPage">
             <section className={`projectFrame ${projectStatusClass}`}>
@@ -47,12 +55,8 @@ function ProjectPage() {
                     </div>
 
                     <div className="pageSection">
-                        <h2>Planned direction</h2>
-
-                        <p>
-                            This page will eventually include the project goal, process,
-                            screenshots, technical decisions, GitHub link, and final reflection.
-                        </p>
+                        <h2>{directionHeading}</h2>
+                        <p>{directionCopy}</p>
                     </div>
 
                     <Link className="pageButton" to="/">

@@ -15,7 +15,7 @@ function AboutPage() {
                         <h1>Arwaad Rahman</h1>
 
                         <p className="pageLead">
-                            I am a University of Washington student pursuing computer science,
+                            I am a University of Washington student focused on computing,
                             informatics, and public policy. I am interested in using software,
                             data, and thoughtful design to build tools that make real-world
                             questions easier to understand.
@@ -62,7 +62,7 @@ function AboutPage() {
                 <div className="aboutSnapshotGrid">
                     <div>
                         <span>Academic direction</span>
-                        <strong>Computer Science, Informatics, and Public Policy</strong>
+                        <strong>Computing, Informatics, and Public Policy</strong>
                         <p>
                             I am building a foundation across programming, data, systems,
                             public-interest technology, and policy analysis.
@@ -73,17 +73,18 @@ function AboutPage() {
                         <span>Career interests</span>
                         <strong>Data, ML, and policy technology</strong>
                         <p>
-                            I am aiming toward data analyst, data scientist, machine learning,
-                            and public policy technology roles.
+                            I am interested in data, machine learning, software, and
+                            public-interest technology roles where technical work connects to
+                            real-world decisions.
                         </p>
                     </div>
 
                     <div>
                         <span>Currently building</span>
-                        <strong>History Timeline Website</strong>
+                        <strong>Project-based software and data work</strong>
                         <p>
-                            An interactive project focused on visual storytelling, historical
-                            structure, front-end design, and clear information presentation.
+                            I am developing projects that strengthen my engineering skills while
+                            connecting software, analysis, visual storytelling, and policy.
                         </p>
                     </div>
 
