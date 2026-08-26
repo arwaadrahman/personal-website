@@ -1,4 +1,55 @@
+import { useEffect, useRef } from "react";
+
 function ContactModal({ isOpen, onClose }) {
+    const modalRef = useRef(null);
+    const closeButtonRef = useRef(null);
+
+    useEffect(() => {
+        if (!isOpen) {
+            return undefined;
+        }
+
+        const previouslyFocusedElement = document.activeElement;
+        closeButtonRef.current?.focus();
+
+        function handleKeyDown(event) {
+            if (event.key === "Escape") {
+                onClose();
+                return;
+            }
+
+            if (event.key !== "Tab" || !modalRef.current) {
+                return;
+            }
+
+            const focusableElements = modalRef.current.querySelectorAll(
+                'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            );
+
+            if (focusableElements.length === 0) {
+                return;
+            }
+
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (event.shiftKey && document.activeElement === firstElement) {
+                event.preventDefault();
+                lastElement.focus();
+            } else if (!event.shiftKey && document.activeElement === lastElement) {
+                event.preventDefault();
+                firstElement.focus();
+            }
+        }
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+            previouslyFocusedElement?.focus?.();
+        };
+    }, [isOpen, onClose]);
+
     if (!isOpen) {
         return null;
     }
@@ -6,22 +57,27 @@ function ContactModal({ isOpen, onClose }) {
     return (
         <div className="modalOverlay" role="presentation" onClick={onClose}>
             <section
+                ref={modalRef}
                 className="contactModal"
                 role="dialog"
                 aria-modal="true"
-                aria-label="Contact information"
+                aria-labelledby="contact-modal-title"
                 onClick={(event) => event.stopPropagation()}
             >
-                <button className="modalClose" type="button" onClick={onClose}>
+                <button
+                    ref={closeButtonRef}
+                    className="modalClose"
+                    type="button"
+                    onClick={onClose}
+                    aria-label="Close contact dialog"
+                >
                     ×
                 </button>
 
                 <p className="eyebrow">Connect</p>
+                <h2 id="contact-modal-title">Contact Arwaad</h2>
 
-                <a
-                    className="emailBlock"
-                    href="mailto:arwaadar@gmail.com"
-                >
+                <a className="emailBlock" href="mailto:arwaadar@gmail.com">
                     <span>Email</span>
                     <strong>arwaadar@gmail.com</strong>
                 </a>
