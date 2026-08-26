@@ -1,54 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="540" viewBox="0 0 1600 540" role="img" aria-labelledby="title desc">
-  <title id="title">Arwaad Rahman Personal Portfolio</title>
-  <desc id="desc">A dashboard-inspired portfolio for software, data, design, and public policy.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#07121a"/>
-      <stop offset="0.52" stop-color="#101626"/>
-      <stop offset="1" stop-color="#12091a"/>
-    </linearGradient>
-    <radialGradient id="cyanGlow" cx="0.12" cy="0.08" r="0.52">
-      <stop offset="0" stop-color="#21b8ad" stop-opacity="0.68"/>
-      <stop offset="1" stop-color="#21b8ad" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="pinkGlow" cx="0.9" cy="0.12" r="0.48">
-      <stop offset="0" stop-color="#b72c68" stop-opacity="0.68"/>
-      <stop offset="1" stop-color="#b72c68" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="purpleGlow" cx="0.76" cy="0.96" r="0.52">
-      <stop offset="0" stop-color="#5145cf" stop-opacity="0.48"/>
-      <stop offset="1" stop-color="#5145cf" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-
-  <rect width="1600" height="540" rx="34" fill="url(#bg)"/>
-  <rect width="1600" height="540" rx="34" fill="url(#cyanGlow)"/>
-  <rect width="1600" height="540" rx="34" fill="url(#pinkGlow)"/>
-  <rect width="1600" height="540" rx="34" fill="url(#purpleGlow)"/>
-
-  <g opacity="0.22" stroke="#f0e6d6" stroke-width="1">
-    <path d="M0 90H1600M0 180H1600M0 270H1600M0 360H1600M0 450H1600"/>
-    <path d="M160 0V540M320 0V540M480 0V540M640 0V540M800 0V540M960 0V540M1120 0V540M1280 0V540M1440 0V540"/>
-  </g>
-
-  <g transform="translate(88 70)">
-    <rect width="1424" height="400" rx="28" fill="#f2eadc" fill-opacity="0.97"/>
-
-    <rect x="32" y="28" width="430" height="74" rx="18" fill="#101521"/>
-    <text x="60" y="76" fill="#f2eadc" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="800" letter-spacing="1.4">ARWAAD RAHMAN</text>
-
-    <rect x="32" y="126" width="900" height="242" rx="22" fill="#101521"/>
-    <text x="70" y="186" fill="#21b8ad" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" letter-spacing="3">PERSONAL PORTFOLIO</text>
-    <text x="70" y="260" fill="#f2eadc" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="900">Software. Data. Design.</text>
-    <text x="70" y="326" fill="#f2eadc" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="900">Public policy.</text>
-
-    <rect x="962" y="28" width="430" height="340" rx="22" fill="#101521"/>
-    <rect x="994" y="54" width="178" height="62" rx="31" fill="#21b8ad"/>
-    <text x="1028" y="94" fill="#f2eadc" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800">REACT + VITE</text>
-    <rect x="994" y="138" width="334" height="2" fill="#f2eadc" opacity="0.26"/>
-    <text x="994" y="194" fill="#f2eadc" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800">DASHBOARD-INSPIRED</text>
-    <text x="994" y="234" fill="#f2eadc" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800">RESPONSIVE UI</text>
-    <text x="994" y="274" fill="#f2eadc" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800">LIGHT / DARK MODE</text>
-    <text x="994" y="322" fill="#b72c68" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="800">arwaadrahman.com</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640" role="img" aria-labelledby="title desc">
+  <title id="title">Arwaad Rahman personal portfolio banner</title>
+  <desc id="desc">A clean dashboard-inspired banner for a personal portfolio focused on software, data, design, and public policy.</desc>
+  <rect width="1600" height="640" rx="28" fill="#0b1220"/>
+  <rect x="96" y="72" width="1408" height="496" rx="30" fill="#f5f0e8"/>
+  <rect x="132" y="108" width="350" height="58" rx="14" fill="#0f1728"/>
+  <text x="161" y="146" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="0.6">ARWAAD RAHMAN</text>
+  <rect x="132" y="194" width="850" height="318" rx="24" fill="#0f1728"/>
+  <text x="172" y="252" fill="#20c7b7" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" letter-spacing="2.5">PERSONAL PORTFOLIO</text>
+  <text x="172" y="340" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-1.8">Software. Data. Design.</text>
+  <text x="172" y="418" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-1.8">Public policy.</text>
+  <rect x="1018" y="108" width="354" height="404" rx="24" fill="#0f1728"/>
+  <rect x="1054" y="144" width="170" height="50" rx="25" fill="#20c7b7"/>
+  <text x="1082" y="176" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="800">REACT + VITE</text>
+  <line x1="1054" y1="228" x2="1338" y2="228" stroke="#31405e" stroke-width="1.5"/>
+  <text x="1054" y="282" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Dashboard-inspired</text>
+  <text x="1054" y="330" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Responsive UI</text>
+  <text x="1054" y="378" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Light / dark mode</text>
+  <text x="1054" y="468" fill="#ff5e98" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">arwaadrahman.com</text>
 </svg>
