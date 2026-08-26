@@ -11,7 +11,7 @@
   <text x="172" y="418" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-1.8">Public policy.</text>
   <rect x="1018" y="108" width="354" height="404" rx="24" fill="#0f1728"/>
   <rect x="1054" y="144" width="170" height="50" rx="25" fill="#20c7b7"/>
-  <text x="1082" y="176" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="21" font-weight="800">REACT + VITE</text>
+  <text x="1070" y="176" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">REACT + VITE</text>
   <line x1="1054" y1="228" x2="1338" y2="228" stroke="#31405e" stroke-width="1.5"/>
   <text x="1054" y="282" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Dashboard-inspired</text>
   <text x="1054" y="330" fill="#f5f0e8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Responsive UI</text>
