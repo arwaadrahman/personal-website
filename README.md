@@ -1,4 +1,4 @@
-![Arwaad Rahman personal portfolio banner](docs/portfolio-banner.svg)
+![Arwaad Rahman personal portfolio banner](docs/portfolio-banner.png)
 
 # Arwaad Rahman — Personal Portfolio
 
